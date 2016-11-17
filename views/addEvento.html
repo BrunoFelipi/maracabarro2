@@ -1,0 +1,86 @@
+<script type="text/javascript">
+
+$(document).ready(function(){
+  $('.tooltipped').tooltip({delay: 50});
+  $('.modal-trigger').leanModal();
+  $('select').material_select();
+  $('.datepicker').pickadate();
+
+  $('#titulo').focus();
+  $('#descricao').focus();
+  $("input#titulo, textarea#descricao").characterCounter();
+});
+</script>
+
+<div ng-controller="eventosCtrl">
+
+    <header>
+        <nav class="orange darken-4">
+            <div class="nav-wrapper">
+                <a href="#/" class="brand-logo left light" style="padding-left: 50px">Maracabarro</a>
+                <ul id="nav-mobile" class="right">
+                    <li><a href="#/financas" class="light">Finanças</a></li>
+                    <li class="active"><a href="#/eventos" class="light">Eventos</a></li>
+                    <li><a href="#/comunicados" class="light">Comunicados</a></li>
+                    <li><a href="#/jogos" class="light">Jogos</a></li>
+                    <li><a href="#/estatuto" class="light">Estatuto</a></li>
+                    <li><a href="#/calendario" class="light">Calendário</a></li>
+                    <li><a href="#/promocoes" class="light">Promoções</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <br><br>
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <div class="input-field">
+                        <select ng-model="evento.tipo" class="icons">
+                            <option value="" disabled ng-selected="evento.tipo==null">Selecione um tipo</option>
+                            <option value="Cerveja" ng-selected="evento.tipo=='Cerveja'" data-icon="resources/Cerveja.png" class="left circle">Cerveja</option>
+                            <option value="Churrasco" ng-selected="evento.tipo=='Churrasco'" data-icon="resources/Churrasco.png" class="left circle">Churrasco</option>
+                            <option value="Festa" ng-selected="evento.tipo=='Festa'" data-icon="resources/Festa.png" class="left circle">Festa</option>
+                            <option value="Viagem" ng-selected="evento.tipo=='Viagem'" data-icon="resources/Viagem.png" class="left circle">Viagem</option>
+                            <option value="Outros" ng-selected="evento.tipo=='Outros'" data-icon="resources/Outro.png" class="left circle">Outros</option>
+                        </select>
+                        <label>Tipo</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m12 l12 ">
+                    <div class="input-field">
+                        <input id="titulo" ng-model="evento.titulo" type="text" length="50" maxlength="50" class="validate" placeholder="Insira um título"  required="">
+                        <label for="titulo">Título</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m12 l12 ">
+                    <div class="input-field">
+                        <textarea id="descricao" ng-model="evento.descricao" length="1000" maxlength="1000" class="validate materialize-textarea" placeholder="Escreva algo sobre o evento" required=""></textarea>
+                        <label for="descricao">Descrição</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m12 l12 ">
+                    <div class="input-field">
+                        <input id="dia" ng-model="evento.dia" type="date" class="datepicker">
+                        <label for="dia">Data</label>
+                    </div>
+                </div>
+            </div>
+            <a ng-click="closeModalAddEvento()" class="modal-action waves-effect btn-flat left">Cancelar</a>
+            <a ng-click="" class="waves-effect waves-teal teal-text btn-flat right">Adicionar</a>
+        </div>
+    </main>
+
+    <footer>
+    </footer>
+</div>
