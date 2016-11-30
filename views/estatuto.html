@@ -1,9 +1,22 @@
+<style media="screen">
+.pic-container {
+    height: 100%;
+    padding-bottom: 110px;
+    padding-right: 5px;
+    overflow-y: scroll!important;
+    overflow-x:hidden;
+    text-align: justify;
+}
+</style>
+
 <div ng-controller="estatutoCtrl">
+
+
 
     <header>
         <nav class="orange darken-4">
             <div class="nav-wrapper">
-                <a href="#/" class="brand-logo left light">Maracabarro</a>
+                <a href="#/" class="brand-logo left light" style="padding-left: 50px">Maracabarro</a>
                 <ul id="nav-mobile" class="right">
                     <li><a href="#/financas" class="light">Finanças</a></li>
                     <li><a href="#/eventos" class="light">Eventos</a></li>
@@ -20,39 +33,61 @@
     <main>
         <div class="container">
             <div class="row">
-                <div class="col s12 m6 l6">
-                    
+                <div class="col s12 m10 l10 offset-m1 offset-l1">
+                    <div class="card large card-fixed-footer">
+                        <div class="card-content">
+                            <div class="pic-container">
+
+
+                            <p class="card-title center">Maracabarro Futebol Clube</p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sollicitudin nibh vel lorem feugiat, vitae laoreet est scelerisque. Proin tincidunt elementum lectus pulvinar ullamcorper. Praesent in arcu est. Mauris at sapien tristique diam rhoncus blandit et sit amet ipsum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla eu ipsum laoreet, pellentesque tortor et, rutrum massa. Pellentesque auctor viverra eros in tincidunt. Phasellus hendrerit metus ante. Nulla sed erat elit. Aliquam posuere imperdiet neque, et sodales leo condimentum non. Mauris imperdiet efficitur facilisis. Proin id ornare lectus. Duis a eleifend neque. Ut porta venenatis massa sit amet facilisis. In posuere porttitor congue.
+                            </p>
+                            <p>
+                                Morbi sollicitudin lectus sit amet imperdiet faucibus. Praesent sollicitudin massa id urna tincidunt, a finibus ipsum ornare. Etiam sodales, ipsum sit amet ornare dignissim, lectus nisl porttitor neque, mollis sodales quam arcu non elit. Proin est nisi, luctus in ornare aliquet, viverra in sem. Aenean sed risus feugiat, lobortis turpis eget, eleifend nisl. Etiam quis condimentum neque, eu posuere nisi. Nullam nec lectus gravida, congue lacus et, cursus metus. Maecenas ipsum sem, finibus in felis dapibus, hendrerit sollicitudin risus. Maecenas id nisi consectetur, bibendum magna finibus, tincidunt metus. In hac habitasse platea dictumst. Morbi sodales ante urna, in mollis massa tempor id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sit amet tristique augue. Donec quis mauris ipsum. Praesent fermentum sapien at tortor commodo tincidunt. In gravida cursus mattis.
+                            </p>
+                            <p>
+                                Praesent in metus maximus, egestas eros sit amet, dapibus ipsum. Fusce facilisis nulla vitae justo molestie, sed feugiat eros imperdiet. Mauris pretium porta consequat. Etiam malesuada volutpat tortor ac auctor. Nunc scelerisque ac neque ac rutrum. Phasellus mollis magna ligula, at tempor nunc placerat a. Ut malesuada id lacus eget facilisis. Nam ultrices, ipsum mattis tempor suscipit, magna metus ultricies nulla, dignissim semper odio magna maximus leo. Praesent ante justo, posuere eu lacus a, venenatis dapibus lorem. Nunc nunc mi, consectetur eu eleifend et, ultricies non massa. Nunc elementum ipsum dui, ac consequat elit egestas ut. Aliquam eu varius nisi. Curabitur vulputate dignissim vulputate.
+                            </p>
+                            <p>
+                                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin venenatis ac nisl in accumsan. Sed scelerisque ipsum commodo fringilla scelerisque. Nunc in venenatis sem. Etiam tempor et sapien at varius. Nunc tincidunt nibh id suscipit fermentum. Donec commodo orci felis, nec luctus neque facilisis non. Aenean vel tortor risus. Donec velit felis, mollis quis tortor eu, rhoncus laoreet magna. Aliquam vel blandit velit. Ut metus mi, vestibulum eget diam vel, tempus pellentesque nisl. Donec vitae massa eu urna vehicula tempus at a tellus. Curabitur pulvinar tortor nec sollicitudin imperdiet. Proin viverra nibh non condimentum vehicula. Nam scelerisque pretium facilisis. Integer malesuada, augue at interdum tempor, erat velit vestibulum risus, vel volutpat eros libero at mi.
+                            </p>
+                            <p>
+                                Nam finibus metus a mollis malesuada. Donec finibus ex enim, sed eleifend metus sollicitudin at. Quisque sit amet auctor ligula. Fusce id ligula interdum, dignissim libero in, laoreet augue. Nulla nec augue ornare tellus eleifend congue vel sit amet tellus. Quisque a porttitor mi, vitae pretium nibh. Nullam sed ipsum nisl. Phasellus tincidunt dictum velit ut placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus id elementum sapien, vitae elementum purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique odio ac justo condimentum, gravida semper nunc pharetra. Quisque convallis ex eu leo facilisis venenatis. Vivamus elit sapien, luctus eu ultrices ac, faucibus id eros.
+                            </p>
+                            </div>
+                        </div>
+
+
+                        <div class="card-action">
+                            <div class="row">
+
+                                <div class="col s12 m4 l5 center">
+                                    <input type="checkbox" id="concordo" ng-checked="concordo" ng-click="clicar1()"/>
+                                    <label for="concordo">Concordo</label>
+                                </div>
+                                <div class="col s12 m4 l5 right">
+                                    <input type="checkbox" id="naoConcordo" ng-checked="!concordo" ng-click="clicar2()"/>
+                                    <label for="naoConcordo">Nao Concordo</label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="col s12 m6 l6">
-
-                </div>
             </div>
-        </div>
+        </main>
 
-        <!-- Modal Structure -->
-        <div id="modalexcluirjogador" class="modal">
-            <div class="modal-content">
-                <h3 class="center light">Deseja excluir <br>{{excluirJ.nome}}?</h3>
-            </div>
-            <div class="modal-footer">
-                <a ng-click="excluirJogador()" class="modal-close waves-effect waves-green btn-flat green-text right">Sim</a>
-                <a class="modal-close waves-effect waves-red btn-flat red-text left">Não</a>
-            </div>
-        </div>
+        <footer>
 
-    </main>
+        </footer>
+    </div>
 
-    <footer>
+    <script type="text/javascript">
 
-    </footer>
-</div>
+    $(document).ready(function(){
+        $('.collapsible').collapsible();
+        $('.modal-trigger').leanModal();
+    });
 
-<script type="text/javascript">
-
-$(document).ready(function(){
-  $('.collapsible').collapsible();
-  $('.modal-trigger').leanModal();
-});
-
-</script>
+    </script>
