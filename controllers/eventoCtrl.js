@@ -1,4 +1,8 @@
-app.controller('eventosCtrl',function($scope, $rootScope, EventosService, toastr, $location, $filter){
+app.controller('eventosCtrl', function ($scope, $rootScope, EventosService, toastr, $location, $filter) {
+
+    $(document).ready(function () {
+        $('ul.tabs').tabs();
+    });
 
     $scope.usuarioLogado = $rootScope.usuario;
 
@@ -7,17 +11,17 @@ app.controller('eventosCtrl',function($scope, $rootScope, EventosService, toastr
 
     var promise = EventosService.selectAll();
 
-    promise.then(function(response){
+    promise.then(function (response) {
         $scope.eventos = response.data;
-    }, function(error){
-        Materialize.toast('Erro de conexão com o servidor',2000);
+    }, function (error) {
+        Materialize.toast('Erro de conexão com o servidor', 2000);
     });
 
-    $scope.setEventoModal = function(evento) {
+    $scope.setEventoModal = function (evento) {
         $scope.eventoModal = evento;
     }
 
-    $scope.confirmarPresenca = function(idEvento, idUsuario){
+    $scope.confirmarPresenca = function (idEvento, idUsuario) {
         alert('Evento ' + idEvento + ' confirmado pelo usuario ' + idUsuario);
     }
 
@@ -25,15 +29,15 @@ app.controller('eventosCtrl',function($scope, $rootScope, EventosService, toastr
         alert('Evento ' + idEvento + ' recusado pelo usuario ' + idUsuario);
     }
 
-    $scope.closeModal = function(){
+    $scope.closeModal = function () {
         $('#modalEvento').closeModal();
     }
 
-    $scope.addEvento = function(){
+    $scope.addEvento = function () {
         $('#modalAddEvento').openModal();
     }
 
-    $scope.closeModalAddEvento = function(){
+    $scope.closeModalAddEvento = function () {
         $('#modalAddEvento').closeModal();
     }
 

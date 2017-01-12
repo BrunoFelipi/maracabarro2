@@ -1,6 +1,7 @@
 <div ng-controller="comunicadosCtrl">
 
     <header>
+        <!--
         <nav class="orange darken-4">
             <div class="nav-wrapper">
                 <a href="#/" class="brand-logo left light">Maracabarro</a>
@@ -15,16 +16,33 @@
                 </ul>
             </div>
         </nav>
+        -->
     </header>
 
     <main>
         <div class="container">
             <div class="row">
-                <div class="col s12 m6 l6">
+                <div class="col s12 m10 l10 offset-m1 offset-l1">
 
-                </div>
+                    <div class="card horizontal" ng-repeat="comunicado in comunicados">
+                        
+                        <div class="card-image">
 
-                <div class="col s12 m6 l6">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p>{{comunicado.titulo}}</p>
+                                <p>{{comunicado.conteudo}}</p>
+                            </div>
+                            <div class="card-action">
+                                <a class="right blue-text" href="">Comentar</a>
+                                <a class="right blue-text" href="" ng-if="usuarioAtivo.admin == 's'">Editar</a>                                                                
+                                <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{comunicado.id}}" href="" ng-click="addCurtida(comunicado.id)">666 <i class="tiny material-icons">thumb_up</i></a>
+                                <a href="" ng-click="">10 <i class="tiny material-icons">comment</i></a>                                
+                                                                
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -42,6 +60,10 @@
 $(document).ready(function(){
   $('.collapsible').collapsible();
   $('.modal-trigger').leanModal();
+  $('.tooltipped').tooltip({
+      delay: 50,
+      html: true
+  });
 });
 
 </script>

@@ -1,7 +1,7 @@
 app.run(function($rootScope){
 
-    $rootScope.usuario = {
-		id: -1,
+    $rootScope.usuarioAtivo = {
+		id: 0,
 		nome: '',
 		email: '',
         admin: 's'

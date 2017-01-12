@@ -22,3 +22,26 @@ CREATE TABLE  participanteseventos (
   participara char(1),
   pagou char(1)
 );
+
+create table comunicados(
+  id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  titulo varchar(200),
+  conteudo varchar(1000),
+  dataPublicacao datetime,
+  usuarioResponsavel varchar(200),
+  ativo char(1)
+);
+
+create table comentariosComunicado(
+  id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  idComunicado int(100),
+  usuario varchar(200),
+  comentario varchar(1000),
+  dataComentario datetime
+);
+
+create table curtidasComunicado(
+  id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  idComunicado int(100),
+  usuario varchar(200)
+);

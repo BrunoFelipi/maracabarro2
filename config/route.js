@@ -21,6 +21,12 @@ app.config(function($routeProvider){
     .when('/comunicados', {
         templateUrl: 'views/comunicados.html'
     })
+    .when('/comunicados/add', {
+        templateUrl: 'views/addComunicado.html'
+    })
+    .when('/comunicados/edit/:id', {
+        templateUrl: 'views/editComunicado.html'
+    })
     .when('/estatuto', {
         templateUrl: 'views/estatuto.html'
     })
