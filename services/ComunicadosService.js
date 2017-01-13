@@ -1,12 +1,12 @@
 app.factory('ComunicadosService', function ($http) {
     return {
 
-        adicionar: function (comunicado, usuario) {
+        addComunicado: function (comunicado, usuario) {
             comunicado.usuario = usuario;
             return $http({
                 method: 'post',
-                url: 'ws/comunicados/adicionar.php',
-                data: { comunicado }
+                url: 'ws/comunicados/addComunicado.php',
+                data: comunicado
             });
         },
 
@@ -50,12 +50,19 @@ app.factory('ComunicadosService', function ($http) {
             });
         },
 
-        addComentario: function (comentario, usuario) {
-            comunicado.usuario = usuario;
+        addComentario: function (idComunicado, comentario, usuario) {            
             return $http({
                 method: 'post',
                 url: 'ws/comunicados/comentarios/addComentario.php',
-                data: { comunicado: comunicado }
+                data: { comentario: comentario, idComunicado: idComunicado, usuario: usuario }
+            });
+        },
+
+        existComunicado: function (idComunicado) {            
+            return $http({
+                method: 'post',
+                url: 'ws/comunicados/existComunicado.php',
+                data: { idComunicado: idComunicado }
             });
         },
 

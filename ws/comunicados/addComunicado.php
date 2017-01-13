@@ -4,10 +4,17 @@
 
     $titulo = $data['titulo'];
     $conteudo = $data['conteudo'];    
+    
     $usuario = $data['usuario'];
     $datahora = 'now()';
 
-    $sql = "INSERT INTO comunicados VALUES (0,'$titulo','$conteudo','$usuario',$datahora,'s')";
+    if(empty($data['importante'])){
+        $importante = '0';
+    } else {
+        $importante = $data['importante'];
+    }
+
+    $sql = "INSERT INTO comunicados VALUES (0,'$titulo','$conteudo','$importante',$datahora,'$usuario','s')";
     $rs = mysqli_query($conexao, $sql);
 
     if($rs){

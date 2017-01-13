@@ -1,5 +1,5 @@
 <?php
-    include '../conexao.php';
+    include '../../conexao.php';
     $data = json_decode(file_get_contents('php://input'), true);
 
     $idComunicado = $data['idComunicado'];

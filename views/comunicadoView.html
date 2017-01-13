@@ -1,4 +1,4 @@
-<div ng-controller="comunicadosCtrl">
+<div ng-controller="comunicadoViewCtrl">
 
     <header>
         <!--
@@ -24,8 +24,8 @@
             <div class="row">
                 <div class="col s12 m10 l10 offset-m1 offset-l1">
 
-                    <div class="card horizontal" ng-repeat="comunicado in comunicados">
-                        
+                    <!-- COMUNICADO -->
+                    <div class="card horizontal">
                         <div class="card-image">
 
                         </div>
@@ -40,19 +40,34 @@
                                 <p>{{comunicado.conteudo}}</p>
                             </div>
                             <div class="card-action">
-                                <a class="right blue-text" href="#/comunicados/{{comunicado.id}}">Comentar</a>
-                                <a class="right blue-text" href="#/comunicados" ng-if="usuarioAtivo.admin == 's'">Editar</a>                                                                
+                                <a class="right blue-text" href="#/comunicados" ng-if="usuarioAtivo.admin == 's'">Editar</a>
                                 <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{comunicado.id}}" href="" ng-click="addCurtida(comunicado.id)">666 <i class="tiny material-icons">thumb_up</i></a>
                                 <a href="" ng-click="">10 <i class="tiny material-icons">comment</i></a>
                             </div>
                         </div>
                     </div>
 
+                    <!-- COMENTÁRIOS -->
+                    Coments
+                    <form ng-submit="addComentario(comentario)">
+                        <div class="card horizontal">
+                            <div class="card-stacked">
+                                                    
+                                <div class="card-content">                                
+                                    <div class="input-field">                                                                                                                                         
+                                        <textarea ng-model="comentario.comentario" class="form-control" required></textarea>                              
+                                    </div>
+                                </div>
+                                <div class="card-action">                                
+                                    <button type="submit" class="right waves-effect waves-light orange darken-4 btn">Comentar</a>
+                                </div>                        
+                            </div>                        
+                        </div>
+                    </form>
+
                 </div>
             </div>
         </div>
-		
-		<a href="#/comunicados/add" ng-if="usuarioAtivo.admin == 's'" id="add" class="btn-floating btn-large waves-effect waves-light orange darken-4"><i class="material-icons">add</i></a>
 
     </main>
 

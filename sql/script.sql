@@ -27,6 +27,7 @@ create table comunicados(
   id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   titulo varchar(200),
   conteudo varchar(1000),
+  importante char(1),
   dataPublicacao datetime,
   usuarioResponsavel varchar(200),
   ativo char(1)
