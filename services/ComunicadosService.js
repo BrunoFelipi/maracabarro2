@@ -90,6 +90,14 @@ app.factory('ComunicadosService', function ($http) {
             });
         },
 
+        updateQtdCurtidas: function (idComunicado, qtdCurtidas) {
+            return $http({
+                method: 'post',
+                url: 'ws/comunicados/curtidas/updateQtdCurtidas.php',
+                data: { idComunicado: idComunicado, qtdCurtidas: qtdCurtidas }
+            });
+        },
+
 
     };
 });

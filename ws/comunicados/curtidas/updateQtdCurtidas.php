@@ -3,9 +3,9 @@
     $data = json_decode(file_get_contents('php://input'), true);
 
     $idComunicado = $data['idComunicado'];
-    $usuario = $data['usuario'];
+    $qtdCurtidas = $data['qtdCurtidas'];
 
-    $sql = "INSERT INTO curtidascomunicado VALUES (0,'$idComunicado','$usuario')";
+    $sql = "UPDATE comunicados set qtdCurtidas='$qtdCurtidas'";
     $rs = mysqli_query($conexao, $sql);
 
     if($rs){
