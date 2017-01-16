@@ -1,20 +1,17 @@
 app.controller('comunicadosCtrl', function ($scope, $rootScope, $routeParams, ComunicadosService, toastr, $location, $filter) {
 
     $scope.usuarioAtivo = $rootScope.usuarioAtivo;
-
-    /*
-        $scope.teste = {};
+    $scope.qtdComentarios = 0;
+    $scope.qtdCurtidas = 0;
     
-        $scope.teste = "teste 1";
-        $scope.teste += "<br>teste 2";
-    */
     var promise = ComunicadosService.getComunicados();
-    promise.then(function (response) {
+    promise.then(function (response) {        
         $scope.comunicados = response.data;
     }, function (error) {
         Materialize.toast('Erro de conexão com o<br>servidor', 4000);
     });
 
+/*
     $scope.getQtdCurtidas = function (idComunicado) {
         var promise = ComunicadosService.getQtdCurtidas(idComunicado);
         promise.then(function (response) {
@@ -23,9 +20,8 @@ app.controller('comunicadosCtrl', function ($scope, $rootScope, $routeParams, Co
             Materialize.toast('Erro de conexão com o<br>servidor', 4000);
         });
     }
-
-    $scope.addCurtida = function (id) {
-        console.log(id);
+*/
+    $scope.addCurtida = function (id) {        
         var promise = ComunicadosService.addCurtida(id, 'bruno');
         promise.then(function (response) {
             if (response.data == 'true') {
@@ -36,13 +32,12 @@ app.controller('comunicadosCtrl', function ($scope, $rootScope, $routeParams, Co
         });
     }
 
-    $scope.getQtdCurtidas();
+    //$scope.getQtdCurtidas();
 
     $scope.addComunicado = function (comunicado) {
 
         var promise = ComunicadosService.addComunicado(comunicado, 'bruno');
-        promise.then(function (response) {
-            console.log(response.data);
+        promise.then(function (response) {            
             if(response.data == 'true'){
                 Materialize.toast('Comunicado adicionado<br>com sucesso', 2000);
                 $location.path('/comunicados');    

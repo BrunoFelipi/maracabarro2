@@ -30,7 +30,9 @@ create table comunicados(
   importante char(1),
   dataPublicacao datetime,
   usuarioResponsavel varchar(200),
-  ativo char(1)
+  ativo char(1),
+  qtdCurtidas int(100),
+  qtdComentarios int(100)
 );
 
 create table comentariosComunicado(
@@ -41,8 +43,7 @@ create table comentariosComunicado(
   dataComentario datetime
 );
 
-create table curtidasComunicado(
-  id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+create table curtidasComunicado(  
   idComunicado int(100),
   usuario varchar(200)
 );

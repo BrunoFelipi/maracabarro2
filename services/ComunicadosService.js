@@ -50,11 +50,11 @@ app.factory('ComunicadosService', function ($http) {
             });
         },
 
-        addComentario: function (idComunicado, comentario, usuario) {            
+        addComentario: function (idComunicado, texto, usuario) {            
             return $http({
                 method: 'post',
                 url: 'ws/comunicados/comentarios/addComentario.php',
-                data: { comentario: comentario, idComunicado: idComunicado, usuario: usuario }
+                data: { idComunicado: idComunicado, texto: texto, usuario: usuario }
             });
         },
 
@@ -65,6 +65,31 @@ app.factory('ComunicadosService', function ($http) {
                 data: { idComunicado: idComunicado }
             });
         },
+
+        getComentarios: function (idComunicado) {
+            return $http({
+                method: 'post',
+                url: 'ws/comunicados/comentarios/selectComentarios.php',
+                data: {idComunicado: idComunicado}                
+            });
+        },
+
+        getQtdComentarios: function (idComunicado) {
+            return $http({
+                method: 'post',
+                url: 'ws/comunicados/comentarios/getQtdComentarios.php',
+                data: { idComunicado: idComunicado }
+            });
+        },
+
+        updateQtdComentarios: function (idComunicado, qtdComentarios) {
+            return $http({
+                method: 'post',
+                url: 'ws/comunicados/comentarios/updateQtdComentarios.php',
+                data: { idComunicado: idComunicado, qtdComentarios: qtdComentarios }
+            });
+        },
+
 
     };
 });

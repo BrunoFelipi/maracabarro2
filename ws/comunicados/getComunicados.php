@@ -1,7 +1,7 @@
 <?php
     include '../conexao.php';
 
-    $sql = "select * from comunicados;";
+    $sql = "SELECT * from comunicados ORDER BY id ASC";
 
     $rs = mysqli_query($conexao, $sql);
     

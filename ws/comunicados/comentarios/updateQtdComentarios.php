@@ -3,11 +3,9 @@
     $data = json_decode(file_get_contents('php://input'), true);
 
     $idComunicado = $data['idComunicado'];
-    $usuario = $data['usuario'];
-    $comentario = $data['texto'];
-    $dataComentario = 'NOW()';
+    $qtdComentarios = $data['qtdComentarios'];
 
-    $sql = "INSERT INTO comentarioscomunicado VALUES (0,'$idComunicado','$usuario','$comentario',$dataComentario)";
+    $sql = "UPDATE comunicados set qtdComentarios='$qtdComentarios'";
     $rs = mysqli_query($conexao, $sql);
 
     if($rs){

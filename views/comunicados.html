@@ -32,7 +32,7 @@
                         <div class="card-stacked">
                             <div class="card-content">
                                 <p>
-                                    {{comunicado.titulo}}
+                                    123456
                                     <div class="right" ng-if="comunicado.importante == '1'">
                                         <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Importante" href=""><i class="small material-icons red-text">new_releases</i></a>
                                     </div>
@@ -42,8 +42,8 @@
                             <div class="card-action">
                                 <a class="right blue-text" href="#/comunicados/{{comunicado.id}}">Comentar</a>
                                 <a class="right blue-text" href="#/comunicados" ng-if="usuarioAtivo.admin == 's'">Editar</a>                                                                
-                                <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{comunicado.id}}" href="" ng-click="addCurtida(comunicado.id)">666 <i class="tiny material-icons">thumb_up</i></a>
-                                <a href="" ng-click="">10 <i class="tiny material-icons">comment</i></a>
+                                <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{comunicado.id}}" href="" ng-click="addCurtida(comunicado.id)">{{qtdCurtidas}} <i class="tiny material-icons">thumb_up</i></a>
+                                <a href="" ng-click="">{{qtdComentarios}} <i class="tiny material-icons">comment</i></a>
                             </div>
                         </div>
                     </div>

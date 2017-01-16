@@ -4,7 +4,7 @@
 
     $idComunicado = $data['idComunicado'];
 
-    $sql = "SELECT * from comentarioscomunicado where idComunicado='$idComunicado'";
+    $sql = "SELECT COUNT(*) AS qtdComentarios from comentarioscomunicado where idComunicado='$idComunicado'";
 
     $rs = mysqli_query($conexao, $sql);
 
