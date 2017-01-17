@@ -5,7 +5,7 @@
     $idComunicado = $data['idComunicado'];
     $usuario = $data['usuario'];
 
-    $sql = "INSERT INTO curtidascomunicado VALUES (0,'$idComunicado','$usuario')";
+    $sql = "INSERT INTO curtidascomunicado VALUES ('$idComunicado','$usuario')";
     $rs = mysqli_query($conexao, $sql);
 
     if($rs){

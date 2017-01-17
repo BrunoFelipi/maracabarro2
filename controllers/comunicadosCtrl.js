@@ -22,19 +22,24 @@ app.controller('comunicadosCtrl', function ($scope, $rootScope, $routeParams, Co
         }
     */
     $scope.addCurtida = function (idComunicado, qtdCurtidas) {
-        var promise = ComunicadosService.addCurtida(idComunicado, 'bruno');
+        var promise = ComunicadosService.addCurtida($routeParams.id, 'bruno');
         promise.then(function (response) {
             console.log(response.data);
             if (response.data == 'true') {
 
-                var qtdCurt = parseInt(qtdCurtidas) + 1;
-                var promise = ComunicadosService.updateQtdCurtidas(idComunicado, qtdCurt);
+                var qtdCurt = parseInt($scope.qtdCurtidas) + 1;                
+                var promise = ComunicadosService.updateQtdCurtidas($routeParams.id, qtdCurt);
                 promise.then(function (response) {
-                    console.log(response.data);                    
+                    if (response.data == 'true') {
+                          
+                    } else {
+                        Materialize.toast('Erro ao curtir comunicado', 2000);        
+                    }
                 }, function (error) {
                     Materialize.toast('Erro de conexão com o<br>servidor', 4000);
                 });
-
+            } else {
+                Materialize.toast('Erro ao curtir comunicado', 2000);
             }
         }, function (error) {
             Materialize.toast('Erro de conexão com o<br>servidor', 4000);

@@ -20,6 +20,7 @@
     </header>
 
     <main>
+
         <div class="container">
             <div class="row">
                 <div class="col s12 m10 l10 offset-m1 offset-l1">
@@ -30,7 +31,7 @@
 
                         </div>
                         <div class="card-stacked">
-                            <span class="label label-danger" ng-if="comunicado.importante == 1">{{comunicado.usuarioResponsavel}} - {{comunicado.dataPublicacao}}</span>
+                            <span class="label label-danger" ng-if="comunicado.importante == 1">{{comunicado.usuarioResponsavel}} - {{ dataPublicacao | date:"dd/MM/yyyy 'às' HH:mm:ss"}}</span>
                             <span class="label label-info" ng-if="comunicado.importante != 1">{{comunicado.usuarioResponsavel}} - {{comunicado.dataPublicacao}}</span>
                             <div class="card-content">
                                 <p>
@@ -41,29 +42,29 @@
                                 </p>
                                 <p>{{comunicado.conteudo}}</p>
                             </div>
-                            <div class="card-action">                                
-                                <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{comunicado.id}}" href="" ng-click="addCurtida(comunicado.id)">{{comunicado.qtdCurtidas}} <i class="tiny material-icons">thumb_up</i></a>
-                                <a href="" ng-click="">{{comunicado.qtdComentarios}} <i class="tiny material-icons">comment</i></a>
+                            <div class="card-action">
+                                <a href="" ng-click="addCurtida(comunicado.id)" ng-if="habilitaCurtir == true">{{comunicado.qtdCurtidas}} <i class="tiny material-icons">thumb_up</i></a>
+                                <span ng-if="habilitaCurtir == false">{{comunicado.qtdCurtidas}} <i class="tiny material-icons">thumb_up</i></span>
                             </div>
                         </div>
                     </div>
 
                     <!-- COMENTÁRIOS -->
-                    <div class="alert alert-warning" role="alert" ng-if="qtdComentarios > 0">Comentários</div>
-                    <div class="alert alert-success" role="alert" ng-if="qtdComentarios == 0">Sejá o primeiro a comentar</div>
+                    <div class="alert alert-warning" role="alert" ng-if="qtdComentarios > 0">Comentários ({{qtdComentarios}})</div>
+                    <div class="alert alert-success" role="alert" ng-if="qtdComentarios == 0">Seja o primeiro a comentar</div>
                     <div class="card horizontal" ng-if="comentarios.length != 0">
-                        <div class="card-stacked">                                    
+                        <div class="card-stacked">
                             <div class="card-content">
-                                <div class="input-field"> 
-                                    <div ng-repeat="comentario in comentarios">                                        
+                                <div class="input-field">
+                                    <div ng-repeat="comentario in comentarios">
                                         <span class="label label-danger">{{comentario.usuario}}</span>
                                         <br>
-                                        <textarea class="form-control" disabled>{{comentario.comentario}}</textarea>    
-                                        <br>                                        
-                                    </div>                                                   
+                                        <textarea class="form-control" disabled>{{comentario.comentario}}</textarea>
+                                        <br>
+                                    </div>
                                 </div>
-                            </div>                      
-                        </div>                        
+                            </div>
+                        </div>
                     </div>
 
                     <form ng-submit="addComentario(texto)">
@@ -72,8 +73,8 @@
                             <div class="card-stacked">
                                 <div class="card-content">
                                     <div class="input-field">
-                                        <textarea ng-model="texto" class="form-control" required></textarea>       
-                                        <br>                                 
+                                        <textarea ng-model="texto" class="form-control" required></textarea>
+                                        <br>
                                         <span class="label label-danger">colocar nome do usuario logado aqui</span>
                                     </div>
                                 </div>
@@ -83,7 +84,6 @@
                             </div>                        
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
@@ -91,7 +91,7 @@
     </main>
 
     <footer>
-
+        
     </footer>
 </div>
 
@@ -104,6 +104,9 @@ $(document).ready(function(){
       delay: 50,
       html: true
   });
+  $('.collapsible').collapsible();
+
+  
 });
 
 </script>

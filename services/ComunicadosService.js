@@ -30,7 +30,7 @@ app.factory('ComunicadosService', function ($http) {
         getComunicados: function () {
             return $http({
                 method: 'post',
-                url: 'ws/comunicados/getComunicados.php'                
+                url: 'ws/comunicados/getComunicados.php'
             });
         },
 
@@ -50,7 +50,7 @@ app.factory('ComunicadosService', function ($http) {
             });
         },
 
-        addComentario: function (idComunicado, texto, usuario) {            
+        addComentario: function (idComunicado, texto, usuario) {
             return $http({
                 method: 'post',
                 url: 'ws/comunicados/comentarios/addComentario.php',
@@ -58,7 +58,7 @@ app.factory('ComunicadosService', function ($http) {
             });
         },
 
-        existComunicado: function (idComunicado) {            
+        existComunicado: function (idComunicado) {
             return $http({
                 method: 'post',
                 url: 'ws/comunicados/existComunicado.php',
@@ -70,7 +70,7 @@ app.factory('ComunicadosService', function ($http) {
             return $http({
                 method: 'post',
                 url: 'ws/comunicados/comentarios/selectComentarios.php',
-                data: {idComunicado: idComunicado}                
+                data: { idComunicado: idComunicado }
             });
         },
 
@@ -98,6 +98,13 @@ app.factory('ComunicadosService', function ($http) {
             });
         },
 
+        usuarioCurtiu: function (idComunicado, usuario) {
+            return $http({
+                method: 'post',
+                url: 'ws/comunicados/curtidas/usuarioCurtiu.php',
+                data: { idComunicado: idComunicado, usuario: usuario }
+            });
+        },
 
     };
 });

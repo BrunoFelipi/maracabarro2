@@ -5,7 +5,7 @@
     $idComunicado = $data['idComunicado'];
     $qtdCurtidas = $data['qtdCurtidas'];
 
-    $sql = "UPDATE comunicados set qtdCurtidas='$qtdCurtidas'";
+    $sql = "UPDATE comunicados set qtdCurtidas='$qtdCurtidas' where id='$idComunicado'";
     $rs = mysqli_query($conexao, $sql);
 
     if($rs){
