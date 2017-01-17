@@ -61,6 +61,19 @@ app.controller('comunicadoViewCtrl', function ($scope, $route, $rootScope, $rout
         Materialize.toast('Erro de conexão com o<br>servidor', 4000);
     });
 
+    /* Retorna todos os usuários que curtiram o comentario */
+    var promise = ComunicadosService.todasCurtidas($routeParams.id);
+    promise.then(function (response) {
+
+        if(response.data == 'false'){
+            $scope.usuariosCurtiram = null;
+        } else {
+            $scope.usuariosCurtiram = response.data;
+        }
+    }, function (error) {
+        Materialize.toast('Erro de conexão com o<br>servidor', 4000);
+    });
+
     $scope.addComentario = function (texto) {
 
         var promise = ComunicadosService.addComentario($routeParams.id, texto, 'bruno');

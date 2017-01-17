@@ -1613,7 +1613,7 @@
  *  5. Collapsible
  *  6. Chips
  *  7. Date Picker
- *  8. Dropdown
+ *  8. dropdownM
  *  10. Forms
  *  11. Global
  *  12. Grid
@@ -1644,7 +1644,7 @@
    ========================================================================== */
 /* 7. Date Picker
    ========================================================================== */
-/* 8. Dropdown
+/* 8. dropdownM
    ========================================================================== */
 /* 9. Fonts
    ========================================================================== */
@@ -2064,7 +2064,7 @@ a {
 .z-depth-0 {
   box-shadow: none !important; }
 
-.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .dropdown-content, .collapsible, .side-nav {
+.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .dropdownM-content, .collapsible, .side-nav {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
 
 .z-depth-1-half, .btn:hover, .btn-large:hover, .btn-floating:hover {
@@ -3720,7 +3720,7 @@ button.btn-floating {
 .btn-block {
   display: block; }
 
-.dropdown-content {
+.dropdownM-content {
   background-color: #fff;
   margin: 0;
   display: none;
@@ -3731,7 +3731,7 @@ button.btn-floating {
   position: absolute;
   z-index: 999;
   will-change: width, height; }
-  .dropdown-content li {
+  .dropdownM-content li {
     clear: both;
     color: rgba(0, 0, 0, 0.87);
     cursor: pointer;
@@ -3740,24 +3740,24 @@ button.btn-floating {
     width: 100%;
     text-align: left;
     text-transform: none; }
-    .dropdown-content li:hover, .dropdown-content li.active, .dropdown-content li.selected {
+    .dropdownM-content li:hover, .dropdownM-content li.active, .dropdownM-content li.selected {
       background-color: #eee; }
-    .dropdown-content li.active.selected {
+    .dropdownM-content li.active.selected {
       background-color: #e1e1e1; }
-    .dropdown-content li.divider {
+    .dropdownM-content li.divider {
       min-height: 0;
       height: 1px; }
-    .dropdown-content li > a, .dropdown-content li > span {
+    .dropdownM-content li > a, .dropdownM-content li > span {
       font-size: 16px;
       color: #26a69a;
       display: block;
       line-height: 22px;
       padding: 14px 16px; }
-    .dropdown-content li > span > label {
+    .dropdownM-content li > span > label {
       top: 1px;
       left: 3px;
       height: 18px; }
-    .dropdown-content li > a > i {
+    .dropdownM-content li > a > i {
       height: inherit;
       line-height: inherit; }
 
@@ -4812,7 +4812,7 @@ select {
 
 .select-wrapper {
   position: relative; }
-  .select-wrapper input.select-dropdown {
+  .select-wrapper input.select-dropdownM {
     position: relative;
     cursor: pointer;
     background-color: transparent;
@@ -4842,7 +4842,7 @@ select {
 select:disabled {
   color: rgba(0, 0, 0, 0.3); }
 
-.select-wrapper input.select-dropdown:disabled {
+.select-wrapper input.select-dropdownM:disabled {
   color: rgba(0, 0, 0, 0.3);
   cursor: default;
   -webkit-user-select: none;
@@ -4856,9 +4856,9 @@ select:disabled {
 .select-wrapper i {
   color: rgba(0, 0, 0, 0.3); }
 
-.select-dropdown li.disabled,
-.select-dropdown li.disabled > span,
-.select-dropdown li.optgroup {
+.select-dropdownM li.disabled,
+.select-dropdownM li.disabled > span,
+.select-dropdownM li.optgroup {
   color: rgba(0, 0, 0, 0.3);
   background-color: transparent; }
 
@@ -4870,19 +4870,19 @@ select:disabled {
 .prefix ~ label {
   margin-left: 3rem; }
 
-.select-dropdown li img {
+.select-dropdownM li img {
   height: 40px;
   width: 40px;
   margin: 5px 15px;
   float: right; }
 
-.select-dropdown li.optgroup {
+.select-dropdownM li.optgroup {
   border-top: 1px solid #eee; }
-  .select-dropdown li.optgroup.selected > span {
+  .select-dropdownM li.optgroup.selected > span {
     color: rgba(0, 0, 0, 0.7); }
-  .select-dropdown li.optgroup > span {
+  .select-dropdownM li.optgroup > span {
     color: rgba(0, 0, 0, 0.4); }
-  .select-dropdown li.optgroup ~ li.optgroup-option {
+  .select-dropdownM li.optgroup ~ li.optgroup-option {
     padding-left: 1rem; }
 
 /* File Input

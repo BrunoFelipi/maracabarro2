@@ -4,7 +4,7 @@ app.run(function($rootScope){
 		id: 0,
 		nome: '',
 		email: '',
-        admin: 's'
+        admin: 'n'
 	};
 
 });

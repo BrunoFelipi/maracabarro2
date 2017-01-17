@@ -42,8 +42,8 @@
                             <div class="card-action">
                                 <a class="right blue-text" href="#/comunicados/{{comunicado.id}}">Comentar</a>
                                 <a class="right blue-text" href="#/comunicados" ng-if="usuarioAtivo.admin == 's'">Editar</a>                                                                
-                                <a>{{qtdCurtidas}} <i class="tiny material-icons">thumb_up</i></a>
-                                <a>{{qtdComentarios}} <i class="tiny material-icons">comment</i></a>
+                                <a>{{comunicado.qtdCurtidas}} <i class="tiny material-icons">thumb_up</i></a>
+                                <a>{{comunicado.qtdComentarios}} <i class="tiny material-icons">comment</i></a>
                             </div>
                         </div>
                     </div>

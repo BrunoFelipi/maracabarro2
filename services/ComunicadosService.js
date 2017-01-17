@@ -106,5 +106,13 @@ app.factory('ComunicadosService', function ($http) {
             });
         },
 
+        todasCurtidas: function (idComunicado) {
+            return $http({
+                method: 'post',
+                url: 'ws/comunicados/curtidas/todasCurtidas.php',
+                data: { idComunicado: idComunicado }
+            });
+        },
+
     };
 });
