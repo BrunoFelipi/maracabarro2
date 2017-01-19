@@ -7,20 +7,57 @@
                 <a href="#/" class="brand-logo left light">Maracabarro</a>
                 <ul id="nav-mobile" class="right">
                     <li><a href="#/financas" class="light">Finanças</a></li>
+                    glyphicon glyphicon-usd
+                    glyphicon glyphicon-gbp
+                    glyphicon glyphicon-piggy-bank
+
                     <li><a href="#/eventos" class="light">Eventos</a></li>
+                    glyphicon glyphicon-glass
+                    glyphicon glyphicon-sunglasses
+
+
                     <li class="active"><a href="#/comunicados" class="light">Comunicados</a></li>
+                    glyphicon glyphicon-comment
+                    glyphicon glyphicon-bullhorn
+
+
                     <li><a href="#/jogos" class="light">Jogos</a></li>
+
+
+
                     <li><a href="#/estatuto" class="light">Estatuto</a></li>
+                    glyphicon glyphicon-education
+                    glyphicon glyphicon-file
+
                     <li><a href="#/calendario" class="light">Calendário</a></li>
+                    glyphicon glyphicon-calendar
+
+
                     <li><a href="#/promocoes" class="light">Promoções</a></li>
+                    glyphicon glyphicon-gift
+
+
                 </ul>
             </div>
         </nav>
         -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">WebSiteName</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active" data-placement="bottom" data-toggle="tooltip" title="Comunicados"><a href="#/comunicados"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>.</a></li>
+                    <li data-placement="bottom" data-toggle="tooltip" title="Eventos"><a href="#/comunicados"><span class="glyphicon glyphicon-glass" aria-hidden="true"></span>.</a></li>
+                    <li data-placement="bottom" data-toggle="tooltip" title="Finanças"><a href="#/comunicados"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span>.</a></li>
+                    <li data-placement="bottom" data-toggle="tooltip" title="Estatuto"><a href="#/comunicados"><span class="glyphicons glyphicons-soccer-ball" aria-hidden="true"></span>.</a></li>
+                </ul>
+            </div>
+        </nav>
+        
     </header>
 
     <main>
-
         <div class="container">
             <!-- COMUNICADO IMPORTANTE -->
             <div class="panel panel-danger" ng-if="comunicado.importante == '1'">
