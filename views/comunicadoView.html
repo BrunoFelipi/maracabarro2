@@ -22,75 +22,105 @@
     <main>
 
         <div class="container">
-            <div class="row">
-                <div class="col s12 m10 l10 offset-m1 offset-l1">
+            <!-- COMUNICADO IMPORTANTE -->
+            <div class="panel panel-danger" ng-if="comunicado.importante == '1'">
+                <div class="panel-heading">
+                    <h4>                                               
+                        <span class="glyphicon glyphicon-bullhorn" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="Importante"></span>                        
+                        <b class="" style="margin-left: 50px">{{comunicado.titulo}}</b>
+                    </h4>
+                    <span class="label label-danger pull-right">{{comunicado.usuarioResponsavel}} - {{ dataPublicacao | date:"dd/MM/yyyy 'às' HH:mm:ss"}}</span>
+                </div>
+                <div class="panel-body">
+                    <p>{{comunicado.conteudo}}</p>
+                </div>
+                <div class="panel-footer">
 
-                    <!-- COMUNICADO -->
-                    <div class="card horizontal">
-                        <div class="card-image">
-
+                    <a href="" ng-click="addCurtida(comunicado.id)" ng-if="habilitaCurtir == true">{{comunicado.qtdCurtidas}} <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>
+                    <span ng-if="habilitaCurtir == false">{{comunicado.qtdCurtidas}} <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></span>
+                    <span class="label tiny label-primary" ng-if="habilitaCurtir == false">Você curtiu isso</span>
+                    
+                    <div class="btn-group pull-right">
+                        <div>
+                            <button type="button" class="btn btn-sm btn-default" ng-if="usuarioAtivo.admin == 's'" ng-click="openEditComunicadoView()">Editar</button>
+                                                
+                            <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="usu in usuariosCurtiram">
+                                    <a href="">{{usu.usuario}}</a>
+                                </li>                            
+                            </ul>
                         </div>
-                        <div class="card-stacked">
-                            <span class="label label-danger" ng-if="comunicado.importante == 1">{{comunicado.usuarioResponsavel}} - {{ dataPublicacao | date:"dd/MM/yyyy 'às' HH:mm:ss"}}</span>
-                            <span class="label label-info" ng-if="comunicado.importante != 1">{{comunicado.usuarioResponsavel}} - {{comunicado.dataPublicacao}}</span>
-                            <div class="card-content">
-                                <p>
-                                    {{comunicado.titulo}}
-                                    <div class="right" ng-if="comunicado.importante == '1'">
-                                        <i class="small material-icons red-text">new_releases</i>
-                                    </div>
-                                </p>
-                                <p>{{comunicado.conteudo}}</p>
-                            </div>
-                            <div class="card-action dropdown">
-                                <a href="" ng-click="addCurtida(comunicado.id)" ng-if="habilitaCurtir == true">{{comunicado.qtdCurtidas}} <i class="tiny material-icons">thumb_up</i></a>
-                                <span ng-if="habilitaCurtir == false">{{comunicado.qtdCurtidas}} <i class="tiny material-icons">thumb_up</i></span>
-                                <span class="label tiny label-primary" ng-if="habilitaCurtir == false">Você curtiu isso</span>
-                                <a class="waves-effect waves-light btn orange darken-4 right white-text" href="#/comunicados/edit/{{comunicado.id}}" ng-if="usuarioAtivo.admin == 's'">Editar</a>
-
-                                <div style="padding-top: 10px" ng-if="usuarioAtivo.admin == 's'">
-                                    <span class="label label-primary" style="margin-right: 5px" ng-repeat="usu in usuariosCurtiram">{{usu.usuario}}</span>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
 
-                    <!-- COMENTÁRIOS -->
-                    <div class="alert alert-warning" role="alert" ng-if="qtdComentarios > 0">Comentários ({{qtdComentarios}})</div>
-                    <div class="alert alert-success" role="alert" ng-if="qtdComentarios == 0">Seja o primeiro a comentar</div>
-                    <div class="card horizontal" ng-if="comentarios.length != 0">
-                        <div class="card-stacked">
-                            <div class="card-content">
-                                <div class="input-field">
-                                    <div ng-repeat="comentario in comentarios">
-                                        <span class="label label-danger">{{comentario.usuario}}</span>
-                                        <br>
-                                        <textarea class="form-control" disabled>{{comentario.comentario}}</textarea>
-                                        <br>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <form ng-submit="addComentario(texto)">
-                        <div class="input-field">                            
-                            <textarea ng-model="texto" class="form-control" required></textarea>
-                            <span class="label label-danger">colocar nome do usuario logado aqui</span>
-                            <br>
-                            <br>                            
-                            <button type="button" ng-click="openComunicadosView()" class="btn btn-default btn-sm">
-                                <span class="glyphicon glyphicon-chevron-left"></span> Voltar                                
-                            </button>                            
-                            <button type="submit" class="btn btn-danger btn-sm pull-right">Comentar</button>
-                            
-                        </div>
-                    </form>
                 </div>
             </div>
-        </div>
 
-    </main>
+            <!-- COMUNICADO SIMPLES -->
+            <div class="panel panel-default" ng-if="comunicado.importante != '1'">
+                <div class="panel-heading">
+                    <h4>
+                        <b class="">{{comunicado.titulo}}</b>
+                    </h4>
+                    <span class="label label-danger pull-right">{{comunicado.usuarioResponsavel}} - {{ dataPublicacao | date:"dd/MM/yyyy 'às' HH:mm:ss"}}</span>
+                </div>
+                <div class="panel-body">
+                    <p>{{comunicado.conteudo}}aasa</p>
+                </div>
+                <div class="panel-footer">
+
+                    <a href="" ng-click="addCurtida(comunicado.id)" ng-if="habilitaCurtir == true">{{comunicado.qtdCurtidas}} <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>
+                    <span ng-if="habilitaCurtir == false">{{comunicado.qtdCurtidas}} <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></span>
+                    <span class="label label-primary" ng-if="habilitaCurtir == false">Você curtiu isso</span>
+                    
+                    <div class="btn-group pull-right">
+                        <div>
+                            <button type="button" class="btn btn-sm btn-default" ng-if="usuarioAtivo.admin == 's'" ng-click="openEditComunicadoView()">Editar</button>
+                                                
+                            <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="usu in usuariosCurtiram">
+                                    <a href="">{{usu.usuario}}</a>
+                                </li>                            
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMENTÁRIOS -->
+            <div class="alert alert-warning" role="alert" ng-if="qtdComentarios > 0">Comentários ({{qtdComentarios}})</div>
+            <div class="alert alert-success" role="alert" ng-if="qtdComentarios == 0">Seja o primeiro a comentar</div>
+            <div ng-if="comentarios.length != 0">
+                
+                <div class="input-field">
+                    <div ng-repeat="comentario in comentarios">
+                        <span class="label label-danger">{{comentario.usuario}}</span>
+                        <br>
+                        <textarea class="form-control" disabled>{{comentario.comentario}}</textarea>                                
+                    </div>
+                </div>
+
+                <form ng-submit="addComentario(texto)">
+                    <div class="input-field">         
+                        <br>           
+                        <textarea ng-model="texto" class="form-control" required></textarea>
+                        <span class="label label-danger">colocar nome do usuario logado aqui</span>
+                        <br>
+                        <br>
+                        <button type="button" ng-click="openComunicadosView()" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-chevron-left"></span> Voltar                                
+                        </button>
+                        <button type="submit" class="btn btn-danger btn-sm pull-right">Comentar</button>
+                    </div>
+                </form>
+            </div>
+        </main>
 
     <footer>
 
@@ -99,10 +129,8 @@
 
 <script type="text/javascript">
 
-$(document).ready(function(){
-  $('.collapsible').collapsible();
-  $('.dropdown-button').dropdown();
-
-});
+    $(document).ready(function () {                
+        $('[data-toggle="tooltip"]').tooltip();        
+    });
 
 </script>

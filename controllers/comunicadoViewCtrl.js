@@ -4,6 +4,9 @@ app.controller('comunicadoViewCtrl', function ($scope, $route, $rootScope, $rout
     $scope.comentarios = {};
     $scope.qtdComentarios = 0;
     $scope.qtdCurtidas = 0;
+    $scope.comunicado = {};
+    $scope.usuariosCurtiram = {};
+    $scope.dataPublicacao;
     
     /* Valida se o comunicado aberto existe */
     var promise = ComunicadosService.existComunicado($routeParams.id);
@@ -13,10 +16,10 @@ app.controller('comunicadoViewCtrl', function ($scope, $route, $rootScope, $rout
             Materialize.toast('Comunicado não existe', 2000);
             $location.path('/comunicados');
         } else {
-            $scope.comunicado = response.data[0];            
+            $scope.comunicado = response.data[0];
             $scope.qtdComentarios = response.data[0].qtdComentarios;
             $scope.qtdCurtidas = response.data[0].qtdCurtidas;
-            $scope.dataPublicacao = new Date(response.data[0].dataPublicacao);            
+            $scope.dataPublicacao = new Date(response.data[0].dataPublicacao);
         }
     }, function (error) {
         Materialize.toast('Erro de conexão com o<br>servidor', 4000);
@@ -52,7 +55,7 @@ app.controller('comunicadoViewCtrl', function ($scope, $route, $rootScope, $rout
     var promise = ComunicadosService.usuarioCurtiu($routeParams.id, 'bruno');
     promise.then(function (response) {
 
-        if(response.data == 'false'){
+        if (response.data == 'false') {
             $scope.habilitaCurtir = true;
         } else {
             $scope.habilitaCurtir = false;
@@ -65,7 +68,7 @@ app.controller('comunicadoViewCtrl', function ($scope, $route, $rootScope, $rout
     var promise = ComunicadosService.todasCurtidas($routeParams.id);
     promise.then(function (response) {
 
-        if(response.data == 'false'){
+        if (response.data == 'false') {
             $scope.usuariosCurtiram = null;
         } else {
             $scope.usuariosCurtiram = response.data;
@@ -80,13 +83,13 @@ app.controller('comunicadoViewCtrl', function ($scope, $route, $rootScope, $rout
         promise.then(function (response) {
             if (response.data == 'true') {
 
-                var qtdComents = parseInt($scope.qtdComentarios) + 1;                
+                var qtdComents = parseInt($scope.qtdComentarios) + 1;
                 var promise = ComunicadosService.updateQtdComentarios($routeParams.id, qtdComents);
                 promise.then(function (response) {
                     if (response.data == 'true') {
-                        $route.reload();     
+                        $route.reload();
                     } else {
-                        Materialize.toast('Erro ao inserir comentário', 2000);        
+                        Materialize.toast('Erro ao inserir comentário', 2000);
                     }
                 }, function (error) {
                     Materialize.toast('Erro de conexão com o<br>servidor', 4000);
@@ -103,16 +106,16 @@ app.controller('comunicadoViewCtrl', function ($scope, $route, $rootScope, $rout
 
         var promise = ComunicadosService.addCurtida($routeParams.id, 'bruno');
         promise.then(function (response) {
-            
+
             if (response.data == 'true') {
 
-                var qtdCurt = parseInt($scope.qtdCurtidas) + 1;                
+                var qtdCurt = parseInt($scope.qtdCurtidas) + 1;
                 var promise = ComunicadosService.updateQtdCurtidas($routeParams.id, qtdCurt);
                 promise.then(function (response) {
                     if (response.data == 'true') {
-                        $route.reload();     
+                        $route.reload();
                     } else {
-                        Materialize.toast('Erro ao curtir comunicado', 2000);        
+                        Materialize.toast('Erro ao curtir comunicado', 2000);
                     }
                 }, function (error) {
                     Materialize.toast('Erro de conexão com o<br>servidor', 4000);
@@ -125,9 +128,12 @@ app.controller('comunicadoViewCtrl', function ($scope, $route, $rootScope, $rout
         });
     }
 
-    $scope.openComunicadosView = function(){
-        alert('1');
+    $scope.openComunicadosView = function () {    
         $location.path("comunicados");
+    }
+
+    $scope.openEditComunicadoView = function () {          
+        $location.path("comunicados/edit/" + $routeParams.id);    
     }
 
 });
