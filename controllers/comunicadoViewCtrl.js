@@ -125,4 +125,9 @@ app.controller('comunicadoViewCtrl', function ($scope, $route, $rootScope, $rout
         });
     }
 
+    $scope.openComunicadosView = function(){
+        alert('1');
+        $location.path("comunicados");
+    }
+
 });

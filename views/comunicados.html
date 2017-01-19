@@ -24,41 +24,38 @@
             <div class="row">
                 <div class="col s12 m10 l10 offset-m1 offset-l1">
 
-                    <div class="card horizontal" ng-repeat="comunicado in comunicados">
-                        
-                        <div class="card-image">
 
+                    <div class="panel panel-default" ng-repeat="comunicado in comunicados">
+                        <div class="panel-heading">
+                            <h4><b>{{comunicado.titulo}}</b></h4>
                         </div>
-                        <div class="card-stacked">
-                            <div class="card-content">
-                                <p>
-                                    {{comunicado.titulo}}
-                                    <div class="right" ng-if="comunicado.importante == '1'">
-                                        <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Importante" href=""><i class="small material-icons red-text">new_releases</i></a>
-                                    </div>
-                                </p>
-                                <p>{{comunicado.conteudo}}</p>
-                            </div>
-                            <div class="card-action">
-                                <a class="right blue-text" href="#/comunicados/{{comunicado.id}}">Comentar</a>
-                                <a class="right blue-text" href="#/comunicados" ng-if="usuarioAtivo.admin == 's'">Editar</a>                                                                
-                                <a>{{comunicado.qtdCurtidas}} <i class="tiny material-icons">thumb_up</i></a>
-                                <a>{{comunicado.qtdComentarios}} <i class="tiny material-icons">comment</i></a>
-                            </div>
+                        <div class="panel-body">
+                            {{comunicado.conteudo}}
+                        </div>
+                        <div class="right" ng-if="comunicado.importante == '1'">
+                            <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Importante" href=""><i class="small material-icons red-text">new_releases</i></a>
+                        </div>
+                        <div class="panel-footer">
+                            <p class="orange-text" style="cursor:default">{{comunicado.qtdCurtidas}} <i class="tiny material-icons">thumb_up</i> {{comunicado.qtdComentarios}}
+                                <i class="material-icons">comment</i></p>
+                            <a class="blue-text" href="#/comunicados/{{comunicado.id}}">Comentar</a>
+                            <a class="blue-text" href="#/comunicados/edit/{{comunicado.id}}" ng-if="usuarioAtivo.admin == 's'">Editar</a>
                         </div>
                     </div>
-
                 </div>
             </div>
+
         </div>
-		
-		<a href="#/comunicados/add" ng-if="usuarioAtivo.admin == 's'" id="add" class="btn-floating btn-large waves-effect waves-light orange darken-4"><i class="material-icons">add</i></a>
+</div>
+</div>
 
-    </main>
+<a href="#/comunicados/add" ng-if="usuarioAtivo.admin == 's'" id="add" class="btn-floating btn-large waves-effect waves-light orange darken-4"><i class="material-icons">add</i></a>
 
-    <footer>
+</main>
 
-    </footer>
+<footer>
+
+</footer>
 </div>
 
 <script type="text/javascript">

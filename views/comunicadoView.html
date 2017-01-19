@@ -46,9 +46,10 @@
                                 <a href="" ng-click="addCurtida(comunicado.id)" ng-if="habilitaCurtir == true">{{comunicado.qtdCurtidas}} <i class="tiny material-icons">thumb_up</i></a>
                                 <span ng-if="habilitaCurtir == false">{{comunicado.qtdCurtidas}} <i class="tiny material-icons">thumb_up</i></span>
                                 <span class="label tiny label-primary" ng-if="habilitaCurtir == false">Você curtiu isso</span>
+                                <a class="waves-effect waves-light btn orange darken-4 right white-text" href="#/comunicados/edit/{{comunicado.id}}" ng-if="usuarioAtivo.admin == 's'">Editar</a>
 
                                 <div style="padding-top: 10px" ng-if="usuarioAtivo.admin == 's'">
-                                    <span class="label label-info" style="margin-right: 5px" ng-repeat="usu in usuariosCurtiram">{{usu.usuario}}</span>
+                                    <span class="label label-primary" style="margin-right: 5px" ng-repeat="usu in usuariosCurtiram">{{usu.usuario}}</span>
                                 </div>
                             </div>
                         </div>
@@ -73,20 +74,16 @@
                     </div>
 
                     <form ng-submit="addComentario(texto)">
-
-                        <div class="card horizontal">
-                            <div class="card-stacked">
-                                <div class="card-content">
-                                    <div class="input-field">
-                                        <textarea ng-model="texto" class="form-control" required></textarea>
-                                        <br>
-                                        <span class="label label-danger">colocar nome do usuario logado aqui</span>
-                                    </div>
-                                </div>
-                                <div class="card-action">
-                                    <button type="submit" class="right waves-effect waves-light orange darken-4 btn">Comentar</button>
-                                </div>
-                            </div>
+                        <div class="input-field">                            
+                            <textarea ng-model="texto" class="form-control" required></textarea>
+                            <span class="label label-danger">colocar nome do usuario logado aqui</span>
+                            <br>
+                            <br>                            
+                            <button type="button" ng-click="openComunicadosView()" class="btn btn-default btn-sm">
+                                <span class="glyphicon glyphicon-chevron-left"></span> Voltar                                
+                            </button>                            
+                            <button type="submit" class="btn btn-danger btn-sm pull-right">Comentar</button>
+                            
                         </div>
                     </form>
                 </div>
