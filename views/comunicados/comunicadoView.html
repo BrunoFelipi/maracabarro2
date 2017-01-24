@@ -1,0 +1,147 @@
+<div ng-controller="comunicadoViewCtrl">
+
+    <header>        
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+
+                
+                <a href="#/home" class="navbar-brand" href="">Maracabarro</a>
+                
+
+                <ul class="nav navbar-nav navbar-right">                        
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuário<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href=""><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Calendário</a></li>
+                        <li><a href=""><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comunicados</a></li>
+                        <li><a href=""><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Estatuto</a></li>
+                        <li><a href=""><span class="glyphicon glyphicon-glass" aria-hidden="true"></span> Eventos</a></li>
+                        <li><a href=""><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Finanças</a></li>
+                        <li><a href=""><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Fotos</a></li>                            
+                        <li><a href=""><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Jogos</a></li>
+                        <li><a href=""><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Promoções</a></li>       
+                        <li><a href=""><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Vídeos</a></li>                     
+                        <li role="separator" class="divider"></li>
+                        <li><a href=""><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Sair</a></li>
+                    </ul>
+                    </li>
+                </ul>
+                
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- COMUNICADO IMPORTANTE -->
+            <div class="panel panel-danger" ng-if="comunicado.importante == '1'">
+                <div class="panel-heading">
+                    <h4>
+                        <span class="glyphicon glyphicon-bullhorn" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="Importante"></span>
+                        <b class="" style="margin-left: 50px">{{comunicado.titulo}}</b>
+                    </h4>
+                    <span class="label label-danger pull-right">{{comunicado.usuarioResponsavel}} - {{ dataPublicacao | date:"dd/MM/yyyy 'às' HH:mm:ss"}}</span>
+                </div>
+                <div class="panel-body">
+                    <p>{{comunicado.conteudo}}</p>
+                </div>
+                <div class="panel-footer">
+
+                    <a href="" ng-click="addCurtida(comunicado.id)" ng-if="habilitaCurtir == true">{{comunicado.qtdCurtidas}} <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>
+                    <span ng-if="habilitaCurtir == false">{{comunicado.qtdCurtidas}} <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></span>
+                    <span class="label tiny label-primary" ng-if="habilitaCurtir == false">Você curtiu isso</span>
+
+                    <div class="btn-group pull-right">
+                        <div>
+                            <button type="button" class="btn btn-xs btn-default" ng-if="usuarioAtivo.admin == 's'" ng-click="openEditComunicadoView()">Editar</button>
+
+                            <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="usu in usuariosCurtiram">
+                                    <a href="">{{usu.usuario}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMUNICADO SIMPLES -->
+            <div class="panel panel-default" ng-if="comunicado.importante != '1'">
+                <div class="panel-heading">
+                    <h4>
+                    <b class="">{{comunicado.titulo}}</b>
+                </h4>
+                <span class="label label-primary pull-right">{{comunicado.usuarioResponsavel}} - {{ dataPublicacao | date:"dd/MM/yyyy 'às' HH:mm:ss"}}</span>
+            </div>
+            <div class="panel-body">
+                <p>{{comunicado.conteudo}}aasa</p>
+            </div>
+            <div class="panel-footer">
+
+                <a href="" ng-click="addCurtida(comunicado.id)" ng-if="habilitaCurtir == true">{{comunicado.qtdCurtidas}} <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>
+                <span ng-if="habilitaCurtir == false">{{comunicado.qtdCurtidas}} <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></span>
+                <span class="label label-primary" ng-if="habilitaCurtir == false">Você curtiu isso</span>
+
+                <div class="btn-group pull-right">
+                    <div>
+                        <button type="button" class="btn btn-xs btn-default" ng-if="usuarioAtivo.admin == 's'" ng-click="openEditComunicadoView()">Editar</button>
+
+                        <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="usu in usuariosCurtiram">
+                                <a href="">{{usu.usuario}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMENTÁRIOS -->
+        <div class="alert alert-warning" role="alert" ng-if="qtdComentarios > 0">Comentários ({{qtdComentarios}})</div>
+        <div class="alert alert-success" role="alert" ng-if="qtdComentarios == 0">Seja o primeiro a comentar</div>
+        <div ng-if="comentarios.length != 0">
+
+            <div class="input-field">
+                <div ng-repeat="comentario in comentarios">
+                    <span class="label label-danger">{{comentario.usuario}}</span>
+                    <br>
+                    <textarea class="form-control" disabled>{{comentario.comentario}}</textarea>
+                </div>
+            </div>
+        </div>
+
+        <form ng-submit="addComentario(texto)">
+            <div class="input-field">
+                <br>
+                <textarea ng-model="texto" class="form-control" required></textarea>
+                <span class="label label-danger">colocar nome do usuario logado aqui</span>
+                <br>
+                <br>
+                <button type="button" ng-click="openComunicadosView()" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-chevron-left"></span> Voltar                                
+                </button>
+                <button type="submit" class="btn btn-danger btn-sm pull-right">Comentar</button>
+            </div>
+        </form>
+
+    </main>
+
+    <footer>
+
+    </footer>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        $('.dropdown-toggle').dropdown();
+    });
+
+</script>

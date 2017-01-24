@@ -7,39 +7,41 @@ app.config(function($routeProvider){
         templateUrl: 'views/home.html'
     })
     .when('/eventos', {
-        templateUrl: 'views/eventos.html'
+        templateUrl: 'views/eventos/eventos.html'
     })
     .when('/eventos/add', {
-        templateUrl: 'views/addEvento.html'
+        templateUrl: 'views/eventos/addEvento.html'
     })
     .when('/eventos/edit/:id', {
-        templateUrl: 'views/editEvento.html'
+        templateUrl: 'views/eventos/editEvento.html'
     })
     .when('/calendario', {
         templateUrl: 'views/calendario.html'
     })
     .when('/comunicados', {
-        templateUrl: 'views/comunicados.html'
+        templateUrl: 'views/comunicados/comunicados.html'
     })
     .when('/comunicados/add', {
-        templateUrl: 'views/addComunicado.html'
+        templateUrl: 'views/comunicados/addComunicado.html'
     })
     .when('/comunicados/edit/:id', {
-        templateUrl: 'views/editComunicado.html'
+        templateUrl: 'views/comunicados/editComunicado.html'
     })
     .when('/comunicados/:id', {
-        templateUrl: 'views/comunicadoView.html'
+        templateUrl: 'views/comunicados/comunicadoView.html'
     })
     .when('/estatuto', {
-        templateUrl: 'views/estatuto.html'
+        templateUrl: 'views/estatuto/estatuto.html'
     })
     .when('/financas', {
-        templateUrl: 'views/financas.html'
+        templateUrl: 'views/financas/financas.html'
     })
     .when('/jogos', {
-        templateUrl: 'views/jogos.html'
+        templateUrl: 'views/jogos/jogos.html'
     })
     .when('/promocoes', {
-        templateUrl: 'views/promocoes.html'
+        templateUrl: 'views/promocoes/promocoes.html'
     })
+
+
 });

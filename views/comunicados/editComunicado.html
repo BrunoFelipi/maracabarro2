@@ -47,13 +47,13 @@
 
             <div ng-if="comunicado.importante != '1'">
                 <form ng-submit="editComunicado(comunicado)">        
-                    <!-- COMUNICADO IMPORTANTE -->
+                    <!-- COMUNICADO SIMPLES -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4>                                                                          
                                 <input type="text" placeholder="Título" class="form-control" id="titulo" value="{{comunicado.titulo}}" required>                            
                             </h4>
-                            <span class="label label-danger pull-right">{{comunicado.usuarioResponsavel}} - {{ comunicado.dataPublicacao }}</span>
+                            <span class="label label-primary pull-right">{{comunicado.usuarioResponsavel}} - {{ comunicado.dataPublicacao }}</span>
                         </div>
                         <div class="panel-body">
                             <div class="form-group">                            
