@@ -2,7 +2,7 @@ CREATE TABLE  estatuto (
   id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   idusuario int(100),
   leu char(1),
-  resposta varchar(45),
+  concorda char(1),
   opiniao varchar(200)
 );
 

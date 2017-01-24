@@ -2,6 +2,23 @@
 
     <header>
 
+        <style type="text/css">
+            @media screen and (min-width: 768px) {
+                .modal-dialog {
+                    width: 700px; /* New width for default modal */
+                }
+                .modal-sm {
+                    width: 350px; /* New width for small modal */
+                }
+            }
+            @media screen and (min-width: 992px) {
+                .modal-lg {
+                    width: 950px; /* New width for large modal */
+                    height: 900px;
+                }
+            }
+        </style>
+
     </header>
 
     <main>
@@ -9,16 +26,46 @@
 
             <!-- Modal -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog modal-lg"role="document">
                     <div class="modal-content">
-                        <div class="modal-header">                            
-                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">Estatuto</h4>
                         </div>
                         <div class="modal-body">
-                            ...
+                            <div class="form-group">                                
+                                <textarea style="height: 200px" class="form-control estatuto">
+
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur placerat euismod mi, eu laoreet ligula scelerisque nec. Sed dignissim justo vel eros placerat vehicula. Maecenas luctus, nisl quis fermentum iaculis, erat neque tempor magna, vel tincidunt diam tortor sed lorem. Maecenas mi diam, sodales sed leo et, fringilla auctor lacus. In mattis tempus varius. Donec elementum justo nulla. Ut eget lacus quis sapien elementum vestibulum nec eu orci.
+
+                                    Donec diam orci, tincidunt non elementum eu, bibendum quis ante. Donec dolor tortor, lacinia vel libero non, lobortis tempus ante. Donec in dapibus felis. Nunc quis nunc sed nisl eleifend laoreet nec vel tellus. Aliquam sed dignissim ligula. Pellentesque rutrum in ligula at vulputate. Etiam accumsan ligula luctus, tempus tortor eget, pharetra dui. Aliquam facilisis pretium leo, nec congue urna facilisis maximus. Ut eu fermentum risus, sit amet porta enim. Duis hendrerit at neque id bibendum. In tempus dolor quis dolor auctor, eget imperdiet metus consequat.
+
+                                    Donec venenatis varius ipsum, in iaculis magna cursus sodales. Curabitur condimentum purus non diam ultrices, dapibus cursus diam viverra. Donec vel eros sed odio pretium finibus sed ut sem. In eleifend aliquet elementum. Pellentesque pretium, lacus in viverra vestibulum, libero nunc aliquet ante, et laoreet justo diam quis justo. In placerat velit vestibulum imperdiet maximus. Quisque a ex a ligula pellentesque faucibus. Proin faucibus mauris commodo aliquam ornare. Pellentesque sit amet congue ligula, id viverra purus. In hac habitasse platea dictumst.
+
+                                    Praesent gravida ex in justo tempus, quis sagittis sem tincidunt. Sed sagittis lorem nec lectus fermentum mattis. Pellentesque quis faucibus lectus. Fusce aliquet enim et diam vestibulum, ac tempor nibh scelerisque. Suspendisse potenti. Duis arcu augue, ultricies ac nisl in, semper interdum mauris. In consectetur ante leo, eu consectetur lorem bibendum at. Nunc nec odio augue. Vestibulum mollis nibh metus, nec elementum mi varius sit amet. Integer magna nibh, tempus ac nulla sit amet, suscipit eleifend felis. Morbi accumsan purus et leo euismod, eget scelerisque tellus pellentesque. Nullam finibus porttitor ante et feugiat.
+
+                                    Cras in ipsum sit amet nisi tempor cursus ut vel quam. Vestibulum vitae mi nulla. Fusce sodales tempus hendrerit. In vel nulla fringilla, volutpat tellus viverra, dapibus nulla. Nunc posuere nibh nec sodales elementum. Suspendisse aliquam nulla nec nisi facilisis, non dignissim est iaculis. In ut feugiat augue. In luctus lorem velit, vel mollis ligula eleifend ac. Duis libero dui, interdum et ligula quis, iaculis sagittis libero. Sed condimentum mollis magna, et.
+
+                                </textarea>
+                            
+                            </div>
                         </div>
-                        <div class="modal-footer">                            
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                        <div class="modal-footer">
+                            <form ng-submit="enviarEstatuto()">
+                                <div class="pull-left">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="radio" ng-model="concordo" value="s" ng-checked="true">Concordo
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="radio" ng-model="concordo" value="n">Não Concordo
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-danger">Enviar</button>
+
+                                <form ng-if="concordo == 'n'">
+                                    asasas
+                                </form>
+
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -27,14 +74,20 @@
 
     <footer>
     </footer>
-</div>
+    </div>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#myModal').modal('show');
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myModal').modal('show');
 
-        $('#myModal').on('hidden.bs.modal', function () {            
-            window.location.href = "http://pcbnu006300:99/maracabarro2/#/comunicados";
+            $('#myModal').on('hidden.bs.modal', function () {
+                //window.location.href = "http://pcbnu006300:99/maracabarro2/#/comunicados";
+            });
+            $('#myModal').on('show.bs.modal', function () {
+                alert('aa');
+                $('.modal .modal-body').css('overflow-y', 'auto'); 
+                $('.modal .modal-body').css('max-height', $(window).height() * 0.7);
+                
+            });
         });
-    });
-</script>
+    </script>

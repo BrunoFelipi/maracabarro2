@@ -14,80 +14,93 @@
 
 
     <header>
-        <nav class="orange darken-4">
-            <div class="nav-wrapper">
-                <a href="#/" class="brand-logo left light" style="padding-left: 50px">Maracabarro</a>
-                <ul id="nav-mobile" class="right">
-                    <li><a href="#/financas" class="light">Finanças</a></li>
-                    <li><a href="#/eventos" class="light">Eventos</a></li>
-                    <li><a href="#/comunicados" class="light">Comunicados</a></li>
-                    <li><a href="#/jogos" class="light">Jogos</a></li>
-                    <li class="active"><a href="#/estatuto" class="light">Estatuto</a></li>
-                    <li><a href="#/calendario" class="light">Calendário</a></li>
-                    <li><a href="#/promocoes" class="light">Promoções</a></li>
-                </ul>
-            </div>
-        </nav>
+
+        <style type="text/css">
+            @media screen and (min-width: 768px) {
+                .modal-dialog {
+                    width: 700px; /* New width for default modal */
+                }
+                .modal-sm {
+                    width: 350px; /* New width for small modal */
+                }
+            }
+            @media screen and (min-width: 992px) {
+                .modal-lg {
+                    width: 950px; /* New width for large modal */
+                    height: 900px;
+                }
+            }
+        </style>
+
     </header>
 
     <main>
         <div class="container">
-            <div class="row">
-                <div class="col s12 m10 l10 offset-m1 offset-l1">
-                    <div class="card large card-fixed-footer">
-                        <div class="card-content">
-                            <div class="pic-container">
 
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-lg"role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">Estatuto</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">                                
+                                <textarea style="height: 200px" class="form-control estatuto">
 
-                            <p class="card-title center">Maracabarro Futebol Clube</p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sollicitudin nibh vel lorem feugiat, vitae laoreet est scelerisque. Proin tincidunt elementum lectus pulvinar ullamcorper. Praesent in arcu est. Mauris at sapien tristique diam rhoncus blandit et sit amet ipsum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla eu ipsum laoreet, pellentesque tortor et, rutrum massa. Pellentesque auctor viverra eros in tincidunt. Phasellus hendrerit metus ante. Nulla sed erat elit. Aliquam posuere imperdiet neque, et sodales leo condimentum non. Mauris imperdiet efficitur facilisis. Proin id ornare lectus. Duis a eleifend neque. Ut porta venenatis massa sit amet facilisis. In posuere porttitor congue.
-                            </p>
-                            <p>
-                                Morbi sollicitudin lectus sit amet imperdiet faucibus. Praesent sollicitudin massa id urna tincidunt, a finibus ipsum ornare. Etiam sodales, ipsum sit amet ornare dignissim, lectus nisl porttitor neque, mollis sodales quam arcu non elit. Proin est nisi, luctus in ornare aliquet, viverra in sem. Aenean sed risus feugiat, lobortis turpis eget, eleifend nisl. Etiam quis condimentum neque, eu posuere nisi. Nullam nec lectus gravida, congue lacus et, cursus metus. Maecenas ipsum sem, finibus in felis dapibus, hendrerit sollicitudin risus. Maecenas id nisi consectetur, bibendum magna finibus, tincidunt metus. In hac habitasse platea dictumst. Morbi sodales ante urna, in mollis massa tempor id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sit amet tristique augue. Donec quis mauris ipsum. Praesent fermentum sapien at tortor commodo tincidunt. In gravida cursus mattis.
-                            </p>
-                            <p>
-                                Praesent in metus maximus, egestas eros sit amet, dapibus ipsum. Fusce facilisis nulla vitae justo molestie, sed feugiat eros imperdiet. Mauris pretium porta consequat. Etiam malesuada volutpat tortor ac auctor. Nunc scelerisque ac neque ac rutrum. Phasellus mollis magna ligula, at tempor nunc placerat a. Ut malesuada id lacus eget facilisis. Nam ultrices, ipsum mattis tempor suscipit, magna metus ultricies nulla, dignissim semper odio magna maximus leo. Praesent ante justo, posuere eu lacus a, venenatis dapibus lorem. Nunc nunc mi, consectetur eu eleifend et, ultricies non massa. Nunc elementum ipsum dui, ac consequat elit egestas ut. Aliquam eu varius nisi. Curabitur vulputate dignissim vulputate.
-                            </p>
-                            <p>
-                                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin venenatis ac nisl in accumsan. Sed scelerisque ipsum commodo fringilla scelerisque. Nunc in venenatis sem. Etiam tempor et sapien at varius. Nunc tincidunt nibh id suscipit fermentum. Donec commodo orci felis, nec luctus neque facilisis non. Aenean vel tortor risus. Donec velit felis, mollis quis tortor eu, rhoncus laoreet magna. Aliquam vel blandit velit. Ut metus mi, vestibulum eget diam vel, tempus pellentesque nisl. Donec vitae massa eu urna vehicula tempus at a tellus. Curabitur pulvinar tortor nec sollicitudin imperdiet. Proin viverra nibh non condimentum vehicula. Nam scelerisque pretium facilisis. Integer malesuada, augue at interdum tempor, erat velit vestibulum risus, vel volutpat eros libero at mi.
-                            </p>
-                            <p>
-                                Nam finibus metus a mollis malesuada. Donec finibus ex enim, sed eleifend metus sollicitudin at. Quisque sit amet auctor ligula. Fusce id ligula interdum, dignissim libero in, laoreet augue. Nulla nec augue ornare tellus eleifend congue vel sit amet tellus. Quisque a porttitor mi, vitae pretium nibh. Nullam sed ipsum nisl. Phasellus tincidunt dictum velit ut placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus id elementum sapien, vitae elementum purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique odio ac justo condimentum, gravida semper nunc pharetra. Quisque convallis ex eu leo facilisis venenatis. Vivamus elit sapien, luctus eu ultrices ac, faucibus id eros.
-                            </p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur placerat euismod mi, eu laoreet ligula scelerisque nec. Sed dignissim justo vel eros placerat vehicula. Maecenas luctus, nisl quis fermentum iaculis, erat neque tempor magna, vel tincidunt diam tortor sed lorem. Maecenas mi diam, sodales sed leo et, fringilla auctor lacus. In mattis tempus varius. Donec elementum justo nulla. Ut eget lacus quis sapien elementum vestibulum nec eu orci.
+
+                                    Donec diam orci, tincidunt non elementum eu, bibendum quis ante. Donec dolor tortor, lacinia vel libero non, lobortis tempus ante. Donec in dapibus felis. Nunc quis nunc sed nisl eleifend laoreet nec vel tellus. Aliquam sed dignissim ligula. Pellentesque rutrum in ligula at vulputate. Etiam accumsan ligula luctus, tempus tortor eget, pharetra dui. Aliquam facilisis pretium leo, nec congue urna facilisis maximus. Ut eu fermentum risus, sit amet porta enim. Duis hendrerit at neque id bibendum. In tempus dolor quis dolor auctor, eget imperdiet metus consequat.
+
+                                    Donec venenatis varius ipsum, in iaculis magna cursus sodales. Curabitur condimentum purus non diam ultrices, dapibus cursus diam viverra. Donec vel eros sed odio pretium finibus sed ut sem. In eleifend aliquet elementum. Pellentesque pretium, lacus in viverra vestibulum, libero nunc aliquet ante, et laoreet justo diam quis justo. In placerat velit vestibulum imperdiet maximus. Quisque a ex a ligula pellentesque faucibus. Proin faucibus mauris commodo aliquam ornare. Pellentesque sit amet congue ligula, id viverra purus. In hac habitasse platea dictumst.
+
+                                    Praesent gravida ex in justo tempus, quis sagittis sem tincidunt. Sed sagittis lorem nec lectus fermentum mattis. Pellentesque quis faucibus lectus. Fusce aliquet enim et diam vestibulum, ac tempor nibh scelerisque. Suspendisse potenti. Duis arcu augue, ultricies ac nisl in, semper interdum mauris. In consectetur ante leo, eu consectetur lorem bibendum at. Nunc nec odio augue. Vestibulum mollis nibh metus, nec elementum mi varius sit amet. Integer magna nibh, tempus ac nulla sit amet, suscipit eleifend felis. Morbi accumsan purus et leo euismod, eget scelerisque tellus pellentesque. Nullam finibus porttitor ante et feugiat.
+
+                                    Cras in ipsum sit amet nisi tempor cursus ut vel quam. Vestibulum vitae mi nulla. Fusce sodales tempus hendrerit. In vel nulla fringilla, volutpat tellus viverra, dapibus nulla. Nunc posuere nibh nec sodales elementum. Suspendisse aliquam nulla nec nisi facilisis, non dignissim est iaculis. In ut feugiat augue. In luctus lorem velit, vel mollis ligula eleifend ac. Duis libero dui, interdum et ligula quis, iaculis sagittis libero. Sed condimentum mollis magna, et.
+
+                                </textarea>
+                            
                             </div>
                         </div>
-
-
-                        <div class="card-action">
-                            <div class="row">
-
-                                <div class="col s12 m4 l5 center">
-                                    <input type="checkbox" id="concordo" ng-checked="concordo" ng-click="clicar1()"/>
-                                    <label for="concordo">Concordo</label>
+                        <div class="modal-footer">
+                            <form ng-submit="enviarEstatuto()">
+                                <div class="pull-left">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="radio" ng-model="concordo" value="s" ng-checked="true">Concordo
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="radio" ng-model="concordo" value="n">Não Concordo
+                                    </label>
                                 </div>
-                                <div class="col s12 m4 l5 right">
-                                    <input type="checkbox" id="naoConcordo" ng-checked="!concordo" ng-click="clicar2()"/>
-                                    <label for="naoConcordo">Nao Concordo</label>
-                                </div>
+                                <button type="submit" class="btn btn-danger">Enviar</button>
 
-                            </div>
+                                <form ng-if="concordo == 'n'">
+                                    asasas
+                                </form>
+
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
+    </main>
 
-        <footer>
-
-        </footer>
+    <footer>
+    </footer>
     </div>
 
     <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myModal').modal('show');
 
-    $(document).ready(function(){
-        $('.collapsible').collapsible();
-        $('.modal-trigger').leanModal();
-    });
-
+            $('#myModal').on('hidden.bs.modal', function () {
+                //window.location.href = "http://pcbnu006300:99/maracabarro2/#/comunicados";
+            });
+            $('#myModal').on('show.bs.modal', function () {
+                alert('aa');
+                $('.modal .modal-body').css('overflow-y', 'auto'); 
+                $('.modal .modal-body').css('max-height', $(window).height() * 0.7);
+                
+            });
+        });
     </script>

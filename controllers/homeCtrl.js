@@ -1,8 +1,8 @@
 app.controller('homeCtrl',function($scope, CalendarioService, ComunicadosService, EstatutoService, EventosService, FinancasService, JogosService
     , PromocoesService, toastr, $location, $filter){
 
-    
-    $scope.loadpage = function(){
-        $location.path("comunicados");
-    };
+    $scope.enviarEstatuto = function(){
+        console.log($scope.concordo);
+    }
+
 });
