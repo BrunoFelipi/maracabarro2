@@ -1,4 +1,4 @@
-app.controller('editComunicadoCtrl', function ($scope, $rootScope, $routeParams, ComunicadosService, toastr, $location, $filter, humane) {
+app.controller('editComunicadoCtrl', function ($scope, $rootScope, $routeParams, ComunicadosService, toastr, $location, $filter) {
 
     $scope.usuarioAtivo = $rootScope.usuarioAtivo;
     $scope.comunicado = [];
