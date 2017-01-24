@@ -10,12 +10,11 @@ app.factory('ComunicadosService', function ($http) {
             });
         },
 
-        editar: function (comunicado, usuario) {
-            comunicado.usuario = usuario;
+        editComunicado: function (id, titulo, conteudo, usuario) {            
             return $http({
                 method: 'post',
                 url: 'ws/comunicados/editar.php',
-                data: { comunicado }
+                data: { id: id, titulo: titulo, conteudo: conteudo, usuario: usuario }
             });
         },
 

@@ -4,12 +4,11 @@
 
     $id = $data['id'];
     $titulo = $data['titulo'];
-    $conteudo = $data['conteudo'];    
-    $data = 'NOW()';
-    $usuario =  $data['usuario'];
-    $ativo = '1';
+    $conteudo = $data['conteudo'];  
+    $dataP = 'NOW()';      
+    $usuario =  $data['usuario'];    
 
-    $sql = "UPDATE comentarios SET titulo='$titulo', conteudo='$conteudo', data=$data, usuario='$usuario', ativo='$ativo'' where id=$id";
+    $sql = "UPDATE comunicados SET titulo='$titulo', conteudo='$conteudo', usuarioResponsavel='$usuario' where id=$id";
     $rs = mysqli_query($conexao, $sql);
 
     if($rs){

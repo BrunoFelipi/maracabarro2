@@ -24,4 +24,8 @@ app.controller('comunicadosCtrl', function ($scope, $rootScope, $routeParams, Co
         });
     }
 
+    $scope.openEditComunicadoView = function(id){
+        $location.path("/comunicados/edit/" + id);
+    }
+
 });
