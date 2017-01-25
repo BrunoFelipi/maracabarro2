@@ -1,12 +1,18 @@
 <style media="screen">
-.pic-container {
-    height: 100%;
-    padding-bottom: 110px;
-    padding-right: 5px;
-    overflow-y: scroll!important;
-    overflow-x:hidden;
-    text-align: justify;
-}
+    .pic-container {
+        height: 100%;
+        padding-bottom: 110px;
+        padding-right: 5px;
+        overflow-y: scroll!important;
+        overflow-x:hidden;
+        text-align: justify;
+    }
+
+    textarea{ 
+        width: 700px;        
+        min-height:700px;  
+        max-height:1000px;
+    }
 </style>
 
 <div ng-controller="estatutoCtrl">
@@ -32,10 +38,40 @@
             }
         </style>
 
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+
+                
+                <a href="#/home" class="navbar-brand" href="">Maracabarro</a>
+                
+
+                <ul class="nav navbar-nav navbar-right">                        
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuário<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href=""><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Calendário</a></li>
+                        <li><a href=""><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comunicados</a></li>
+                        <li><a href=""><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Estatuto</a></li>
+                        <li><a href=""><span class="glyphicon glyphicon-glass" aria-hidden="true"></span> Eventos</a></li>
+                        <li><a href=""><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Finanças</a></li>
+                        <li><a href=""><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Fotos</a></li>                            
+                        <li><a href=""><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Jogos</a></li>
+                        <li><a href=""><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Promoções</a></li>       
+                        <li><a href=""><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Vídeos</a></li>                     
+                        <li role="separator" class="divider"></li>
+                        <li><a href=""><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Sair</a></li>
+                    </ul>
+                    </li>
+                </ul>
+                
+            </div>
+        </nav>
+    
+
     </header>
 
     <main>
-        <div class="container">
+        <div class="container pic-container">
 
             <!-- Modal -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -74,9 +110,9 @@
                                 </div>
                                 <button type="submit" class="btn btn-danger">Enviar</button>
 
-                                <form ng-if="concordo == 'n'">
+                                <div ng-if="concordo == 'n'">
                                     asasas
-                                </form>
+                                </div>
 
                             </form>
                         </div>
@@ -91,16 +127,11 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            $('.dropdown-toggle').dropdown();
             $('#myModal').modal('show');
 
             $('#myModal').on('hidden.bs.modal', function () {
                 //window.location.href = "http://pcbnu006300:99/maracabarro2/#/comunicados";
-            });
-            $('#myModal').on('show.bs.modal', function () {
-                alert('aa');
-                $('.modal .modal-body').css('overflow-y', 'auto'); 
-                $('.modal .modal-body').css('max-height', $(window).height() * 0.7);
-                
             });
         });
     </script>

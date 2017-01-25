@@ -23,7 +23,13 @@ app.controller('editComunicadoCtrl', function ($scope, $rootScope, $routeParams,
 
         var promise = ComunicadosService.editComunicado($routeParams.id, titulo, conteudo, 'Bruno');
         promise.then(function (response) {
-            console.log(response.data);            
+            
+            if(response.data == 'true'){
+                $location.path('comunicados');
+                toastr.success('Comunicado editado com sucesso');
+            } else {
+                toastr.success('Erro ao editar comunicado');
+            }     
             
         }, function (error) {
             Materialize.toast('Erro de conexão com o<br>servidor', 4000);

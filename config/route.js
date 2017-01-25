@@ -42,6 +42,9 @@ app.config(function($routeProvider){
     .when('/promocoes', {
         templateUrl: 'views/promocoes/promocoes.html'
     })
+    .when('/teste', {
+        templateUrl: 'views/teste.html'
+    })
 
 
 });
