@@ -1,7 +1,7 @@
 <?php
     include '../conexao.php';
 
-    $sql = "SELECT id, tipo, nome, descricao, dia, valor, ativo FROM evento order by id desc";
+    $sql = "SELECT * FROM evento order by id desc";
 
     $rs = mysqli_query($conexao, $sql);
 

@@ -7,10 +7,10 @@ app.factory('EventosService', function($http){
                 data: {nome: nome, descricao: descricao, dia: dia}
             });
         },
-        selectAll: function(){
+        getEventos: function(){
             return $http({
                 method: 'post',
-                url: 'ws/eventos/selectAll.php'
+                url: 'ws/eventos/getEventos.php'
             });
         },
         delete: function(id){
