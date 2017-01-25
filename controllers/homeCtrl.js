@@ -2,6 +2,7 @@ app.controller('homeCtrl',function($scope, CalendarioService, ComunicadosService
     , PromocoesService, toastr, $location, $filter){
 
     $scope.comunicados;
+    $scope.eventos;
 
     var promise = ComunicadosService.getComunicados();
     promise.then(function (response) {

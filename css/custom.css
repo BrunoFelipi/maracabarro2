@@ -49,6 +49,10 @@
      padding-left: 300px;
  }
 
+ .hand {
+     cursor:pointer;
+ }   
+
  @media only screen and (max-width : 992px) {
      .admin header{
          padding-left: 0px;
@@ -61,6 +65,9 @@
      .admin footer{
          padding-left: 0px;
      }
+
+     
+
  }
 
 

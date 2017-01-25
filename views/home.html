@@ -6,6 +6,31 @@
 
     <main>
         <div class="container">
+
+            <!-- EVENTOS -->
+            <div class="row-fluid">
+                <div class="list-group span4 offset6">
+                    
+                    <li class="list-group-item active"><b>Eventos</b></li>                                            
+
+                    <a href="#/eventos/{{evento.id}}" ng-repeat="evento in eventos" class="list-group-item">
+                        {{evento.titulo}}
+                    </a>
+
+                    <a href="#/eventos" class="list-group-item active" ng-if="eventos.length > 1">                        
+                        Mais Eventos
+                        <span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>                        
+                    </a>
+
+                    <a class="list-group-item" ng-if="eventos.length == 0">                        
+                        Nenhum evento publicado
+                        <span class="glyphicon glyphicon-remove-circle pull-right" aria-hidden="true"></span>                        
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- COMUNICADOS -->
             <div class="row-fluid">
                 <div class="list-group span4 offset6">
                     
@@ -20,14 +45,18 @@
                         Mais Comunicados
                         <span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>                        
                     </a>
+                    
+                    <a class="list-group-item" ng-if="comunicados.length == 0">                        
+                        Nenhum comunicado publicado
+                        <span class="glyphicon glyphicon-remove-circle pull-right" aria-hidden="true"></span>                        
+                    </a>
 
                 </div>
             </div>
 
+            <!-- VÍDEOS -->
             <div class="row-fluid">
-                <div class="alert alert-success span4 offset6" role="alert">
-                    <a href="#/videos" class="alert-link">Vídeos</a>
-                </div>
+                <div class="alert alert-success span4 offset6 hand" role="alert"><span class="glyphicon glyphicon-play" aria-hidden="true"></span> Vídeos</div>
             </div>
         </div>
     </main>
