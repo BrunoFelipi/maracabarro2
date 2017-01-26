@@ -21,6 +21,8 @@ app.controller('editComunicadoCtrl', function ($scope, $rootScope, $routeParams,
         var titulo = $("#titulo").val();
         var conteudo = $("#conteudo").val();
 
+        console.log(titulo);
+        console.log(conteudo);
         var promise = ComunicadosService.editComunicado($routeParams.id, titulo, conteudo, 'Bruno');
         promise.then(function (response) {
             

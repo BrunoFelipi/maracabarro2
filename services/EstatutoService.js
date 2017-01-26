@@ -13,10 +13,11 @@ app.factory('EstatutoService', function($http){
                 url: 'ws/email/selectAll.php'
             });
         },
-        existEmail: function(email){
+        usuarioConcorda: function(idUsuario){
             return $http({
                 method: 'post',
-                url: 'ws/email/existEmail.php'
+                url: 'ws/estatuto/usuarioConcorda.php',
+                data: {idUsuario: idUsuario}
             });
         }
     };
