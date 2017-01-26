@@ -89,12 +89,39 @@
                     <div ng-if="respondeuEstatuto == 's'" ng-click="openEstatutoView()" class="alert alert-success hand" style="text-align: center" role="alert"><br><b>Estatuto</b><br><br></div>
                 </div>
                 <!-- ./ ESTATUTO -->
-            </div>
-
-            <!-- VÍDEOS -->
-            <div class="row">
+                <!-- VÍDEOS -->
                 <div class="col-sm-4">
-                    <div class="alert alert-success hand" role="alert"><span class="glyphicon glyphicon-play" aria-hidden="true"></span> Vídeos</div>
+                    <div class="alert alert-success hand" style="text-align: center" role="alert">
+                        <br>
+                        Vídeos
+                        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                        <br><br>
+                    </div>
+                </div>
+                <!-- ./ VÍDEOS -->
+                <!-- VÍDEOS -->
+                <div class="col-sm-4">
+                    <div class="alert alert-success hand" style="text-align: center" role="alert">
+                        <br>
+                        Promoções
+                        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                        <br><br>
+                    </div>
+                </div>
+                <!-- ./ VÍDEOS -->
+
+                <div id="" class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#collapse1">Collapsible panel</a>
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                            <div class="panel-body">Panel Body</div>
+                            <div class="panel-footer">Panel Footer</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -107,5 +134,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
+        $(".carousel").carousel();
+        $(".collapse").collapse();
     });
 </script>
