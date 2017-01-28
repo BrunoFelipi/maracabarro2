@@ -1,15 +1,39 @@
-app.controller('estatutoCtrl',function($scope, EstatutoService, toastr, $location, $filter){
+app.controller('estatutoCtrl', function ($scope, EstatutoService, toastr, $location, $filter) {
 
-    $scope.concordo = false;
+    $scope.enviarEstatuto = function () {
 
-    $scope.clicar1 = function() {
+        if ($scope.concordo == undefined) {
+            $scope.concordo = 's';
+        }
 
-        $scope.concordo = true;
-    }
+        if ($scope.concordo == 's') {
+            
+            var promise = EstatutoService.insert(1, 's', '');
+            promise.then(function (response) {
+            
+                if (response.data == 'true') {
+                    alert("Obrigado por ");
+                }
 
-    $scope.clicar2 = function() {
+            }, function (error) {
+                Materialize.toast('Erro de conexão com o<br>servidor', 4000);
+            });
 
-        $scope.concordo = false;
+        } else if($scope.concordo == 'n'){
+            
+            var promise = EstatutoService.insert(1, 'n', $scope.opiniao);
+            promise.then(function (response) {
+            
+                if (response.data == 'true') {
+                    alert("Agradecemos pela sua opinião.");
+                }
+
+            }, function (error) {
+                Materialize.toast('Erro de conexão com o<br>servidor', 4000);
+            });
+
+        }
+
     }
 
 });

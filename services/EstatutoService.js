@@ -1,10 +1,10 @@
 app.factory('EstatutoService', function($http){
     return {
-        insert: function(email){
+        insert: function(idUsuario, concorda, opiniao){
             return $http({
                 method: 'post',
-                url: 'ws/email/cadastrarEmail.php',
-                data: {email: email}
+                url: 'ws/estatuto/insert.php',
+                data: {idUsuario: idUsuario, concorda: concorda, opiniao: opiniao}
             });
         },
         selectAll: function(){
