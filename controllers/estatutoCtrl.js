@@ -1,5 +1,7 @@
 app.controller('estatutoCtrl', function ($scope, EstatutoService, toastr, $location, $filter) {
 
+    
+
     $scope.enviarEstatuto = function () {
 
         if ($scope.concordo == undefined) {
@@ -11,8 +13,9 @@ app.controller('estatutoCtrl', function ($scope, EstatutoService, toastr, $locat
             var promise = EstatutoService.insert(1, 's', '');
             promise.then(function (response) {
             
-                if (response.data == 'true') {
-                    alert("Obrigado por ");
+                if (response.data == 'true') {                    
+                    toastr.success("Obrigado por responder o Estatuto");
+                    $location.path("home");
                 }
 
             }, function (error) {
@@ -25,7 +28,8 @@ app.controller('estatutoCtrl', function ($scope, EstatutoService, toastr, $locat
             promise.then(function (response) {
             
                 if (response.data == 'true') {
-                    alert("Agradecemos pela sua opinião.");
+                    toastr.success("Agradecemos pela sua opinião");
+                    $location.path("home");
                 }
 
             }, function (error) {

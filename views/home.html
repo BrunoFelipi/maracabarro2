@@ -2,6 +2,34 @@
 
     <header>
 
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                
+                <a href="#/home" class="navbar-brand" href="">Maracabarro ll</a>
+                
+                <ul class="nav navbar-nav navbar-right">                        
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuário<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="active"><a href="#/home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                        <li><a href="#/calendario"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Calendário</a></li>
+                        <li><a href="#/comunicados"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comunicados</a></li>
+                        <li><a href="#/estatuto"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Estatuto</a></li>
+                        <li><a href="#/eventos"><span class="glyphicon glyphicon-glass" aria-hidden="true"></span> Eventos</a></li>
+                        <li><a href="#/financas"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Finanças</a></li>
+                        <li><a href="#/fotos"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Fotos</a></li>                            
+                        <li><a href="#/jogos"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Jogos</a></li>
+                        <li><a href="#/promocoes"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Promoções</a></li>       
+                        <li><a href="#/videos"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Vídeos</a></li>                     
+                        <li role="separator" class="divider"></li>
+                        <li><a href=""><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Sair</a></li>
+                    </ul>
+                    </li>
+                </ul>
+                
+            </div>
+        </nav>
+
     </header>
 
     <main>
@@ -64,7 +92,7 @@
                     <div ng-if="respondeuEstatuto == 'n'" ng-click="openEstatutoView()" class="alert alert-danger hand" style="text-align: center" role="alert"><br><b>Clique aqui</b> para responder o estatuto<br><br></div>
                     <div ng-if="respondeuEstatuto == 's'" ng-click="openEstatutoView()" class="alert alert-success hand" style="text-align: center" role="alert"><br><b>Estatuto</b><br><br></div>
                 </div>
-                
+
                 <!-- ./ ESTATUTO -->
                 <!-- VÍDEOS -->
                 <div class="col-sm-4">
@@ -99,5 +127,6 @@
         $('[data-toggle="tooltip"]').tooltip();
         $(".carousel").carousel();
         $(".collapse").collapse();
+        $('.dropdown-toggle').dropdown();
     });
 </script>

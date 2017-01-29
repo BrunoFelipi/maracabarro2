@@ -10,8 +10,7 @@ app.controller('editComunicadoCtrl', function ($scope, $rootScope, $routeParams,
             $location.path('/comunicados');
         } else {
             $scope.comunicado = response.data[0];
-            console.log(response.data);
-        }
+       }
     }, function (error) {
         Materialize.toast('Erro de conexão com o<br>servidor', 4000);
     });
@@ -21,8 +20,6 @@ app.controller('editComunicadoCtrl', function ($scope, $rootScope, $routeParams,
         var titulo = $("#titulo").val();
         var conteudo = $("#conteudo").val();
 
-        console.log(titulo);
-        console.log(conteudo);
         var promise = ComunicadosService.editComunicado($routeParams.id, titulo, conteudo, 'Bruno');
         promise.then(function (response) {
             
