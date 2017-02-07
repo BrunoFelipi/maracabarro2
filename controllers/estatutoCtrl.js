@@ -1,6 +1,17 @@
 app.controller('estatutoCtrl', function ($scope, EstatutoService, toastr, $location, $filter) {
 
-    
+    var promise = EstatutoService.jaRespondeu(1);
+    promise.then(function (response) {
+        if(response.data != 'false'){
+            $scope.respondeu = true;
+        } else {
+            $scope.respondeu = response.data;
+        }
+        
+    }, function (error) {
+        Materialize.toast('Erro de conexão com o<br>servidor', 4000);
+    });
+
 
     $scope.enviarEstatuto = function () {
 

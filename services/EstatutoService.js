@@ -19,6 +19,13 @@ app.factory('EstatutoService', function($http){
                 url: 'ws/estatuto/usuarioConcorda.php',
                 data: {idUsuario: idUsuario}
             });
+        },
+        jaRespondeu: function(idUsuario){
+            return $http({
+                method: 'post',
+                url: 'ws/estatuto/jaRespondeu.php',
+                data: {idUsuario: idUsuario}
+            });
         }
     };
 });
